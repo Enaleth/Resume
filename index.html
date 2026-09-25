@@ -254,12 +254,12 @@ footer p{color:var(--muted);margin-bottom:28px;}
 
     <div class="dash">
       <div class="card">
-        <div class="card-head"><span>Technologies by domain</span><span class="dots">⋯</span></div>
+        <div class="card-head"><span>Skills</span></div>
         <div id="domain-summary" class="domain-summary"></div>
       </div>
 
       <div class="card">
-        <div class="card-head"><span>Impact delivered</span><span class="dots">⋯</span></div>
+        <div class="card-head"><span>Impact delivered</span></div>
         <div class="impact-grid">
           <div class="impact-kpi"><div class="value">8+</div><div class="label">years of BI delivery</div></div>
           <div class="impact-kpi"><div class="value">35+</div><div class="label">dashboards and reports delivered</div></div>
@@ -270,12 +270,12 @@ footer p{color:var(--muted);margin-bottom:28px;}
     </div>
 
     <div class="card" style="margin-top:14px;">
-      <div class="card-head"><span>Skills detail by category</span><span class="dots">⋯</span></div>
+      <div class="card-head"><span>Skills detail by category</span></div>
       <div id="category-pies" class="category-pies"></div>
     </div>
 
     <div class="card" style="margin-top:14px;">
-      <div class="card-head"><span>Technology details</span><span class="dots">⋯</span></div>
+      <div class="card-head"><span>Technology details</span></div>
       <div class="tag-group"><h4>Architecture</h4><div class="tag-list">
         <span class="tag">Medallion</span><span class="tag">Lakehouse</span><span class="tag">Datamesh</span><span class="tag">Kimball</span><span class="tag">Inmon</span><span class="tag">Datavault 2.0</span><span class="tag">ETL / ELT / Reverse ETL</span>
       </div></div>
@@ -383,67 +383,67 @@ const profileLinks = {
 const skillCategories = [
   {
     name: 'Architecture',
-    percent: 30,
+    percent: 88,
     skills: [
-      { name: 'Medallion', value: 25 },
-      { name: 'Lakehouse', value: 20 },
-      { name: 'Datamesh', value: 15 },
-      { name: 'Kimball', value: 15 },
-      { name: 'Inmon', value: 10 },
-      { name: 'Datavault 2.0', value: 10 },
-      { name: 'ETL / ELT / Reverse ETL', value: 5 }
+      { name: 'Medallion', value: 88 },
+      { name: 'Lakehouse', value: 84 },
+      { name: 'Datamesh', value: 78 },
+      { name: 'Kimball', value: 82 },
+      { name: 'Inmon', value: 72 },
+      { name: 'Datavault 2.0', value: 68 },
+      { name: 'ETL / ELT / Reverse ETL', value: 90 }
     ]
   },
   {
     name: 'On-premise',
-    percent: 22,
+    percent: 91,
     skills: [
-      { name: 'Microsoft SQL Server', value: 26 },
-      { name: 'SSIS', value: 22 },
-      { name: 'SSAS', value: 18 },
-      { name: 'SSRS', value: 16 },
-      { name: 'Power BI', value: 10 },
-      { name: 'MDS', value: 8 }
+      { name: 'Microsoft SQL Server', value: 94 },
+      { name: 'SSIS', value: 88 },
+      { name: 'SSAS', value: 82 },
+      { name: 'SSRS', value: 80 },
+      { name: 'Power BI', value: 95 },
+      { name: 'MDS', value: 70 }
     ]
   },
   {
     name: 'Cloud',
-    percent: 20,
+    percent: 86,
     skills: [
-      { name: 'Azure Data Factory', value: 24 },
-      { name: 'Microsoft Fabric', value: 24 },
-      { name: 'Purview', value: 18 },
-      { name: 'Power Apps', value: 14 },
-      { name: 'Power Pages', value: 10 },
-      { name: 'Power Automate', value: 10 }
+      { name: 'Azure Data Factory', value: 88 },
+      { name: 'Microsoft Fabric', value: 90 },
+      { name: 'Purview', value: 76 },
+      { name: 'Power Apps', value: 74 },
+      { name: 'Power Pages', value: 70 },
+      { name: 'Power Automate', value: 80 }
     ]
   },
   {
     name: 'Query languages',
-    percent: 18,
+    percent: 93,
     skills: [
-      { name: 'T-SQL', value: 42 },
-      { name: 'DAX', value: 36 },
-      { name: 'Power Query (M)', value: 22 }
+      { name: 'T-SQL', value: 95 },
+      { name: 'DAX', value: 92 },
+      { name: 'Power Query (M)', value: 90 }
     ]
   },
   {
     name: 'Other',
-    percent: 10,
+    percent: 80,
     skills: [
-      { name: 'Excel', value: 20 },
-      { name: 'Jira', value: 12 },
-      { name: 'Confluence', value: 11 },
-      { name: 'Collibra', value: 10 },
-      { name: 'Git', value: 10 },
-      { name: 'ITIL', value: 8 },
-      { name: 'Talend', value: 8 },
-      { name: 'Qlik Sense', value: 6 },
-      { name: 'Oracle DB', value: 5 },
-      { name: 'Microsoft Access', value: 4 },
-      { name: 'WhereScape 3D', value: 3 },
-      { name: 'WhereScape RED', value: 2 },
-      { name: 'VBA', value: 1 }
+      { name: 'Excel', value: 92 },
+      { name: 'Jira', value: 74 },
+      { name: 'Confluence', value: 76 },
+      { name: 'Collibra', value: 68 },
+      { name: 'Git', value: 82 },
+      { name: 'ITIL', value: 72 },
+      { name: 'Talend', value: 70 },
+      { name: 'Qlik Sense', value: 64 },
+      { name: 'Oracle DB', value: 58 },
+      { name: 'Microsoft Access', value: 65 },
+      { name: 'WhereScape 3D', value: 60 },
+      { name: 'WhereScape RED', value: 55 },
+      { name: 'VBA', value: 70 }
     ]
   }
 ];
@@ -506,19 +506,21 @@ function renderCategoryCharts() {
           <div class="mini-pie" style="${chartStyle}"></div>
           <div class="category-legend">${legend}</div>
         </div>
-        <table class="editable-table">
-          <thead>
-            <tr><th>Skill</th><th>Value</th></tr>
-          </thead>
-          <tbody>
-            ${category.skills.map((skill) => `
-              <tr>
-                <td>${skill.name}</td>
-                <td>${skill.value}%</td>
-              </tr>
-            `).join('')}
-          </tbody>
-        </table>
+        <div style="display:none;">
+          <table class="editable-table">
+            <thead>
+              <tr><th>Skill</th><th>Value</th></tr>
+            </thead>
+            <tbody>
+              ${category.skills.map((skill) => `
+                <tr>
+                  <td>${skill.name}</td>
+                  <td>${skill.value}%</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
       </div>
     `;
   }).join('');
