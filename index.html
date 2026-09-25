@@ -45,7 +45,7 @@ p{max-width:64ch;}
 h1,h2{font-weight:700;letter-spacing:-.01em;}
 
 /* NAV */
-nav{position:sticky;top:0;z-index:50;background:rgba(250,249,248,.92);border-bottom:1px solid var(--border);backdrop-filter:blur(8px);}
+nav{position:sticky;top:0;z-index:50;background:var(--surface);border-bottom:1px solid var(--border);backdrop-filter:blur(8px);}
 nav .bar{display:flex;justify-content:space-between;align-items:center;height:60px;gap:16px;}
 .brand{font-weight:700;font-size:1rem;}
 .nav-actions{display:flex;align-items:center;gap:12px;}
@@ -117,12 +117,16 @@ section h2{font-size:1.6rem;margin-bottom:6px;}
 
 /* DOMAIN SUMMARY */
 .domain-summary{display:grid;gap:12px;}
-.domain-row{display:grid;grid-template-columns:minmax(150px, 1fr) 120px 160px;align-items:center;gap:12px;}
+.domain-row{display:grid;grid-template-columns:minmax(150px, 1fr) 120px;align-items:center;gap:12px;}
 .domain-row label{font-size:.82rem;color:var(--muted);font-weight:600;}
-.domain-row input{width:100%;padding:7px 10px;border-radius:4px;border:1px solid var(--border);background:var(--surface);color:var(--text);font:inherit;}
 .domain-row .percent-value{display:flex;align-items:center;justify-content:flex-end;font-size:.8rem;color:var(--muted);}
-.domain-progress{height:8px;background:var(--surface-alt);border-radius:999px;overflow:hidden;}
+.domain-progress{height:8px;background:var(--surface-alt);border-radius:999px;overflow:hidden;grid-column:1 / -1;}
 .domain-progress .fill{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--teal));border-radius:999px;}
+
+.impact-grid{display:grid;grid-template-columns:repeat(2,minmax(110px,1fr));gap:12px;}
+.impact-kpi{background:var(--surface-alt);border:1px solid var(--border);border-radius:8px;padding:14px;}
+.impact-kpi .value{font-size:1.5rem;font-weight:700;letter-spacing:-.03em;}
+.impact-kpi .label{font-size:.72rem;color:var(--muted);margin-top:4px;line-height:1.4;}
 
 /* SKILL CHARTS */
 .category-pies{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:18px;}
@@ -172,10 +176,13 @@ section h2{font-size:1.6rem;margin-bottom:6px;}
 
 /* SUB-ROLES (nested assignments within one employer) */
 .sub-roles{list-style:none;margin-top:12px;padding-left:16px;border-left:2px solid var(--border);}
-.sub-roles li{font-size:.85rem;color:var(--muted);margin-bottom:10px;}
+.sub-roles li{position:relative;font-size:.85rem;color:var(--muted);margin-bottom:10px;}
 .sub-roles li:last-child{margin-bottom:0;}
 .sub-roles b{color:var(--text);font-weight:600;}
 .sub-date{color:var(--accent);font-weight:600;font-size:.78rem;margin-left:4px;white-space:nowrap;}
+.sub-role{position:relative;display:block;}
+.sub-role:hover .experience-hover,
+.sub-role:focus-within .experience-hover{opacity:1;visibility:visible;transform:translateY(0);}
 
 /* EDUCATION 2-COL */
 .formation-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
@@ -229,7 +236,6 @@ footer p{color:var(--muted);margin-bottom:28px;}
     <div class="btns">
       <a href="mailto:la.corte.renaud@gmail.com" class="btn btn-primary">Get in touch</a>
       <a href="https://www.linkedin.com/in/lacorterenaud/" class="btn btn-outline">LinkedIn</a>
-      <a href="https://github.com/renaudlacorte" class="btn btn-outline">GitHub</a>
     </div>
   </div>
 </header>
@@ -253,15 +259,12 @@ footer p{color:var(--muted);margin-bottom:28px;}
       </div>
 
       <div class="card">
-        <div class="card-head"><span>Career breakdown</span><span class="dots">⋯</span></div>
-        <div class="donut-box">
-          <div class="donut"></div>
-          <ul class="legend">
-            <li><span class="sw" style="background:var(--gold)"></span>KEYES<b>44%</b></li>
-            <li><span class="sw" style="background:var(--teal)"></span>People &amp; Technologies<b>25%</b></li>
-            <li><span class="sw" style="background:var(--accent)"></span>Efficy &amp; early roles<b>19%</b></li>
-            <li><span class="sw" style="background:var(--coral)"></span>Davidson<b>12%</b></li>
-          </ul>
+        <div class="card-head"><span>Impact delivered</span><span class="dots">⋯</span></div>
+        <div class="impact-grid">
+          <div class="impact-kpi"><div class="value">8+</div><div class="label">years of BI delivery</div></div>
+          <div class="impact-kpi"><div class="value">35+</div><div class="label">dashboards and reports delivered</div></div>
+          <div class="impact-kpi"><div class="value">4</div><div class="label">major clients supported</div></div>
+          <div class="impact-kpi"><div class="value">90%</div><div class="label">self-service adoption objective</div></div>
         </div>
       </div>
     </div>
@@ -298,26 +301,22 @@ footer p{color:var(--muted);margin-bottom:28px;}
     <div class="section-line"></div>
 
     <div class="timeline">
-      <div class="t-item experience-card" tabindex="0">
+      <div class="t-item">
         <div class="t-date">2023 — 2026</div>
         <h3>IT Consultant — KEYES</h3>
         <p>Liège</p>
         <ul class="sub-roles">
-          <li><b>Ethias</b> — BI Developer, ODE team <span class="sub-date">2026</span></li>
-          <li><b>Safran Aero Booster</b> — Data Analyst, Liers Facility <span class="sub-date">2025–2026</span></li>
-          <li><b>Safran Aero Booster</b> — BI Expert, Data team <span class="sub-date">2023–2026</span></li>
-          <li><b>Safran Aero Booster</b> — Quality Engineer, e-Quality team <span class="sub-date">2023–2025</span></li>
+          <li class="sub-role experience-card" tabindex="0"><b>Ethias</b> — BI Developer, ODE team <span class="sub-date">2026</span><div class="experience-hover"><h4>Sub-experience</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div></li>
+          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b> — Data Analyst, Liers Facility <span class="sub-date">2025–2026</span><div class="experience-hover"><h4>Sub-experience</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p></div></li>
+          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b> — BI Expert, Data team <span class="sub-date">2023–2026</span><div class="experience-hover"><h4>Sub-experience</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean lacinia bibendum nulla sed consectetur.</p></div></li>
+          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b> — Quality Engineer, e-Quality team <span class="sub-date">2023–2025</span><div class="experience-hover"><h4>Sub-experience</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p></div></li>
         </ul>
-        <div class="experience-hover">
-          <h4>Details</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
       </div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date">2021</div><h3>BI Consultant — Davidson</h3><p>Assignment at Buy Way, BI Analyst, Datawarehouse team — Brussels</p><div class="experience-hover"><h4>Details</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec id elit non mi porta gravida at eget metus.</p></div></div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date">2019 — 2021</div><h3>BI Consultant — People &amp; Technologies</h3><p>Assignment at Smals, Functional Analyst, Knowledge Management team — Brussels</p><div class="experience-hover"><h4>Details</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean lacinia bibendum nulla sed consectetur.</p></div></div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date">2018 — 2019</div><h3>Project Developer and BI Expert — Efficy</h3><p>Brussels</p><div class="experience-hover"><h4>Details</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna.</p></div></div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date">2018</div><h3>Web Developer Intern — 8Trust</h3><p>Brussels</p><div class="experience-hover"><h4>Details</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p></div></div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date">2016</div><h3>Office Coordinator — Celtic Internships</h3><p>Cork, Ireland</p><div class="experience-hover"><h4>Details</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.</p></div></div>
+      <div class="t-item experience-card" tabindex="0"><div class="t-date">2021</div><h3>BI Consultant — Davidson</h3><p>Assignment at Buy Way, BI Analyst, Datawarehouse team — Brussels</p><div class="experience-hover"><h4>Sub-experience</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec id elit non mi porta gravida at eget metus.</p></div></div>
+      <div class="t-item experience-card" tabindex="0"><div class="t-date">2019 — 2021</div><h3>BI Consultant — People &amp; Technologies</h3><p>Assignment at Smals, Functional Analyst, Knowledge Management team — Brussels</p><div class="experience-hover"><h4>Sub-experience</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean lacinia bibendum nulla sed consectetur.</p></div></div>
+      <div class="t-item experience-card" tabindex="0"><div class="t-date">2018 — 2019</div><h3>Project Developer and BI Expert — Efficy</h3><p>Brussels</p><div class="experience-hover"><h4>Sub-experience</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna.</p></div></div>
+      <div class="t-item experience-card" tabindex="0"><div class="t-date">2018</div><h3>Web Developer Intern — 8Trust</h3><p>Brussels</p><div class="experience-hover"><h4>Sub-experience</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p></div></div>
+      <div class="t-item experience-card" tabindex="0"><div class="t-date">2016</div><h3>Office Coordinator — Celtic Internships</h3><p>Cork, Ireland</p><div class="experience-hover"><h4>Sub-experience</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.</p></div></div>
     </div>
   </div>
 </section>
@@ -372,12 +371,15 @@ footer p{color:var(--muted);margin-bottom:28px;}
       <a href="mailto:la.corte.renaud@gmail.com" class="btn btn-primary">la.corte.renaud@gmail.com</a>
       <a href="https://www.linkedin.com/in/lacorterenaud/" class="btn btn-outline">LinkedIn</a>
     </div>
-    <div style="display:none"><a href="https://github.com/Enaleth">hidden github</a></div>
     <div class="copy">© 2026 Renaud La Corte</div>
   </div>
 </footer>
 
 <script>
+const profileLinks = {
+  github: 'https://github.com/Enaleth'
+};
+
 const skillCategories = [
   {
     name: 'Architecture',
@@ -457,9 +459,8 @@ function renderDomainSummary() {
     return `
       <div class="domain-row">
         <label>${category.name}</label>
-        <input type="number" min="0" max="100" value="${category.percent}" data-category="${category.name}" data-field="percent" aria-label="${category.name} percentage">
         <div class="percent-value">${category.percent}%</div>
-        <div class="domain-progress" style="grid-column:2 / span 2;">
+        <div class="domain-progress">
           <span class="fill" style="width:${width}%"></span>
         </div>
       </div>
@@ -510,10 +511,10 @@ function renderCategoryCharts() {
             <tr><th>Skill</th><th>Value</th></tr>
           </thead>
           <tbody>
-            ${category.skills.map((skill, index) => `
+            ${category.skills.map((skill) => `
               <tr>
                 <td>${skill.name}</td>
-                <td><input type="number" min="0" max="100" value="${skill.value}" data-category="${category.name}" data-skill="${skill.name}" aria-label="${skill.name} value"></td>
+                <td>${skill.value}%</td>
               </tr>
             `).join('')}
           </tbody>
@@ -521,30 +522,6 @@ function renderCategoryCharts() {
       </div>
     `;
   }).join('');
-}
-
-function syncValues() {
-  const inputs = document.querySelectorAll('[data-field="percent"], [data-skill]');
-  inputs.forEach((input) => {
-    input.addEventListener('input', () => {
-      const categoryName = input.dataset.category;
-      const category = skillCategories.find((item) => item.name === categoryName);
-      if (!category) return;
-
-      if (input.dataset.field === 'percent') {
-        category.percent = Number(input.value) || 0;
-      } else {
-        const skill = category.skills.find((item) => item.name === input.dataset.skill);
-        if (skill) {
-          skill.value = Number(input.value) || 0;
-        }
-      }
-
-      renderDomainSummary();
-      renderCategoryCharts();
-      syncValues();
-    });
-  });
 }
 
 const themeButton = document.querySelector('.theme-toggle');
@@ -567,7 +544,6 @@ themeButton.addEventListener('click', () => {
 
 renderDomainSummary();
 renderCategoryCharts();
-syncValues();
 
 // Animates the Skills section charts once, the first time they scroll into view
 const skillsEl = document.getElementById('skills');
