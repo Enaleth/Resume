@@ -49,6 +49,7 @@ nav{position:sticky;top:0;z-index:50;background:var(--surface);border-bottom:1px
 nav .bar{display:flex;justify-content:space-between;align-items:center;height:60px;gap:16px;}
 .brand{font-weight:700;font-size:1rem;}
 .nav-actions{display:flex;align-items:center;gap:12px;}
+.language-toggle{height:40px;min-width:44px;padding:0 10px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--text);font-family:inherit;font-size:.8rem;font-weight:600;cursor:pointer;}
 .tabs{display:flex;gap:2px;background:var(--surface-alt);padding:3px;border-radius:6px;}
 .tab{padding:7px 14px;border-radius:4px;font-size:.85rem;color:var(--muted);font-weight:600;transition:color .15s,background .15s;}
 .tab.active{background:var(--surface);color:var(--text);box-shadow:0 1px 2px var(--shadow);}
@@ -215,11 +216,12 @@ footer p{color:var(--muted);margin-bottom:28px;}
     <span class="brand">Renaud La Corte</span>
     <div class="nav-actions">
       <div class="tabs">
-        <a href="#skills" class="tab">Skills</a>
-        <a href="#experience" class="tab">Experience</a>
-        <a href="#education" class="tab">Education</a>
-        <a href="#contact" class="tab">Contact</a>
+        <a href="#skills" class="tab" data-i18n="nav.skills">Skills</a>
+        <a href="#experience" class="tab" data-i18n="nav.experience">Experience</a>
+        <a href="#education" class="tab" data-i18n="nav.education">Education</a>
+        <a href="#contact" class="tab" data-i18n="nav.contact">Contact</a>
       </div>
+      <button class="language-toggle" type="button" aria-label="Switch to French">FR</button>
       <button class="theme-toggle" type="button" aria-label="Toggle theme">
         <span class="icon" aria-hidden="true">🌙</span>
       </button>
@@ -231,13 +233,13 @@ footer p{color:var(--muted);margin-bottom:28px;}
   <div class="wrap">
     <div class="hero-title-row">
       <h1>Renaud La Corte</h1>
-      <div class="status"><i></i> Available for new projects</div>
+      <div class="status"><i></i> <span data-i18n="hero.status">Available for new projects</span></div>
     </div>
-    <div class="role">BI Expert</div>
-    <div class="tagline">Engineering – Analysis – Architecture</div>
-    <p>Data engineering, analysis and architecture for business teams, from on-premise SQL Server to Microsoft Fabric.</p>
+    <div class="role" data-i18n="hero.role">BI Expert</div>
+    <div class="tagline" data-i18n="hero.tagline">Engineering – Analysis – Architecture</div>
+    <p data-i18n="hero.description">Data engineering, analysis and architecture for business teams, from on-premise SQL Server to Microsoft Fabric.</p>
     <div class="btns">
-      <a href="mailto:la.corte.renaud@gmail.com" class="btn btn-primary">Get in touch</a>
+      <a href="mailto:la.corte.renaud@gmail.com" class="btn btn-primary" data-i18n="hero.contact">Get in touch</a>
       <a href="https://www.linkedin.com/in/lacorterenaud/" class="btn btn-outline">LinkedIn</a>
     </div>
   </div>
@@ -245,53 +247,53 @@ footer p{color:var(--muted);margin-bottom:28px;}
 
 <section id="skills">
   <div class="wrap">
-    <h2>Skills</h2>
+    <h2 data-i18n="sections.skills">Skills</h2>
     <div class="section-line"></div>
 
     <div class="kpis">
-      <div class="kpi"><div class="num">8</div><div class="lbl">Years of BI experience</div></div>
-      <div class="kpi"><div class="num">4</div><div class="lbl">Major clients supported</div></div>
-      <div class="kpi"><div class="num">35+</div><div class="lbl">Technologies mastered</div></div>
-      <div class="kpi"><div class="num">C2</div><div class="lbl">English proficiency</div></div>
+      <div class="kpi"><div class="num">8</div><div class="lbl" data-i18n="kpi.experience">Years of BI experience</div></div>
+      <div class="kpi"><div class="num">4</div><div class="lbl" data-i18n="kpi.clients">Major clients supported</div></div>
+      <div class="kpi"><div class="num">35+</div><div class="lbl" data-i18n="kpi.technologies">Technologies mastered</div></div>
+      <div class="kpi"><div class="num">C2</div><div class="lbl" data-i18n="kpi.english">English proficiency</div></div>
     </div>
 
     <div class="dash">
       <div class="card">
-        <div class="card-head"><span>Skills</span></div>
+        <div class="card-head"><span data-i18n="cards.skills">Skills</span></div>
         <div id="domain-summary" class="domain-summary"></div>
       </div>
 
       <div class="card">
-        <div class="card-head"><span>Impact delivered</span></div>
+        <div class="card-head"><span data-i18n="cards.impact">Impact delivered</span></div>
         <div class="impact-grid">
-          <div class="impact-kpi"><div class="value">8+</div><div class="label">years of BI delivery</div></div>
-          <div class="impact-kpi"><div class="value">35+</div><div class="label">dashboards and reports delivered</div></div>
-          <div class="impact-kpi"><div class="value">4</div><div class="label">major clients supported</div></div>
-          <div class="impact-kpi"><div class="value">90%</div><div class="label">self-service adoption objective</div></div>
+          <div class="impact-kpi"><div class="value">8+</div><div class="label" data-i18n="impact.years">years of BI delivery</div></div>
+          <div class="impact-kpi"><div class="value">35+</div><div class="label" data-i18n="impact.deliverables">dashboards and reports delivered</div></div>
+          <div class="impact-kpi"><div class="value">4</div><div class="label" data-i18n="impact.clients">major clients supported</div></div>
+          <div class="impact-kpi"><div class="value">90%</div><div class="label" data-i18n="impact.adoption">self-service adoption objective</div></div>
         </div>
       </div>
     </div>
 
     <div class="card" style="margin-top:14px;">
-      <div class="card-head"><span>Skills detail by category</span></div>
+      <div class="card-head"><span data-i18n="cards.skillDetails">Skills detail by category</span></div>
       <div id="category-pies" class="category-pies"></div>
     </div>
 
     <div class="card" style="margin-top:14px;">
-      <div class="card-head"><span>Technology details</span></div>
-      <div class="tag-group"><h4>Architecture</h4><div class="tag-list">
+      <div class="card-head"><span data-i18n="cards.technologyDetails">Technology details</span></div>
+      <div class="tag-group"><h4 data-i18n="technology.architecture">Architecture</h4><div class="tag-list">
         <span class="tag">Medallion</span><span class="tag">Lakehouse</span><span class="tag">Datamesh</span><span class="tag">Kimball</span><span class="tag">Inmon</span><span class="tag">Datavault 2.0</span><span class="tag">ETL / ELT / Reverse ETL</span>
       </div></div>
-      <div class="tag-group"><h4>On-premise</h4><div class="tag-list">
+      <div class="tag-group"><h4 data-i18n="technology.onPremise">On-premise</h4><div class="tag-list">
         <span class="tag">Microsoft SQL Server</span><span class="tag">SSIS</span><span class="tag">SSAS</span><span class="tag">SSRS</span><span class="tag">Power BI</span><span class="tag">MDS</span>
       </div></div>
-      <div class="tag-group"><h4>Cloud</h4><div class="tag-list">
+      <div class="tag-group"><h4 data-i18n="technology.cloud">Cloud</h4><div class="tag-list">
         <span class="tag">Azure Data Factory</span><span class="tag">Microsoft Fabric</span><span class="tag">Purview</span><span class="tag">Power Apps</span><span class="tag">Power Pages</span><span class="tag">Power Automate</span>
       </div></div>
-      <div class="tag-group"><h4>Query languages</h4><div class="tag-list">
+      <div class="tag-group"><h4 data-i18n="technology.query">Query languages</h4><div class="tag-list">
         <span class="tag">T-SQL</span><span class="tag">DAX</span><span class="tag">Power Query (M)</span>
       </div></div>
-      <div class="tag-group"><h4>Other</h4><div class="tag-list">
+      <div class="tag-group"><h4 data-i18n="technology.other">Other</h4><div class="tag-list">
         <span class="tag">Excel</span><span class="tag">Jira</span><span class="tag">Confluence</span><span class="tag">Collibra</span><span class="tag">Git</span><span class="tag">ITIL</span><span class="tag">Talend</span><span class="tag">Qlik Sense</span><span class="tag">Oracle DB</span><span class="tag">Microsoft Access</span><span class="tag">WhereScape 3D</span><span class="tag">WhereScape RED</span><span class="tag">VBA</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
       </div></div>
     </div>
@@ -300,27 +302,27 @@ footer p{color:var(--muted);margin-bottom:28px;}
 
 <section id="experience">
   <div class="wrap">
-    <h2>Professional Experience</h2>
+    <h2 data-i18n="sections.experience">Professional Experience</h2>
     <div class="section-line"></div>
 
     <div class="timeline">
       <div class="t-item">
         <div class="t-date">2023 — 2026</div>
-        <h3>IT Consultant — KEYES</h3>
+        <h3 data-i18n="experience.keyes">IT Consultant — KEYES</h3>
         <p>Liège</p>
         <ul class="sub-roles">
-          <li class="sub-role experience-card" tabindex="0"><b>Ethias</b> — BI Developer, ODE team <span class="sub-date">2026</span><div class="experience-hover"><h4>Sub-experience</h4><p>Assigned at Ethias as BI Developper in the  One Data Environment team:
+          <li class="sub-role experience-card" tabindex="0"><b>Ethias</b><span data-i18n="role.ethias"> — BI Developer, ODE team</span> <span class="sub-date">2026</span><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.ethias">Assigned at Ethias as BI Developper in the  One Data Environment team:
 Analysis and development for operational maintenance tasks. We used Data Vault 2.0 and Dimensional Modeling with Wherescape 3D et RED.</p></div></li>
-          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b> — Data Analyst, Liers Facility <span class="sub-date">2025–2026</span><div class="experience-hover"><h4>Sub-experience</h4><p>Assigned at Safran Aero Boosters on the Liers facility:
+          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="role.liers"> — Data Analyst, Liers Facility</span> <span class="sub-date">2025–2026</span><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.liers">Assigned at Safran Aero Boosters on the Liers facility:
 - Creation of a data consolidation tool in VBA (Excel)
 - Business and Data Analysis to help define the various KPIs
 - Implementation of complete Power BI dashboards (DAX measures and star schema extract with Power Query)</p></div></li>
-          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b> — Quality Engineer, e-Quality team <span class="sub-date">2023–2025</span><div class="experience-hover"><h4>Sub-experience</h4><p>Assigned at Safran Aero Boosters in the e-Quality team:
+          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="role.quality"> — Quality Engineer, e-Quality team</span> <span class="sub-date">2023–2025</span><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.quality">Assigned at Safran Aero Boosters in the e-Quality team:
 - Implementation of new business KPIs
 - Improvement and technical redesign of existing KPIs
 - Providing technical expertise to support business needs
 - Providing Power BI training</p></div></li>
-          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b> — BI Expert, Data team <span class="sub-date">2021–2023</span><div class="experience-hover"><h4>Sub-experience</h4><p>Assigned at Safran Aero Boosters, as BI Expert in the DSI:
+          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="role.biExpert"> — BI Expert, Data team</span> <span class="sub-date">2021–2023</span><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.biExpert">Assigned at Safran Aero Boosters, as BI Expert in the DSI:
 - Design of the BI infrastructure and architecture
 - Implementation of a complete Datawarehouse structure with SQL Server and SSIS
 - Integrated business objects into the dimensional Datawarehouse
@@ -333,43 +335,43 @@ Analysis and development for operational maintenance tasks. We used Data Vault 2
 - Mentoring and onboarding of an Indian colleague, covering both technical and functional aspects</p></div></li>
         </ul>
       </div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date">2021</div><h3>BI Consultant — Davidson</h3><p>Assignment at Buy Way, BI Analyst, Datawarehouse team — Brussels</p><div class="experience-hover"><h4>Sub-experience</h4><p>Assigned at Buy Way as BI Analyst in the Datawarehouse team.
+      <div class="t-item experience-card" tabindex="0"><div class="t-date">2021</div><h3 data-i18n="experience.davidson">BI Consultant — Davidson</h3><p data-i18n="experience.buywaySummary">Assignment at Buy Way, BI Analyst, Datawarehouse team — Brussels</p><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.buyway">Assigned at Buy Way as BI Analyst in the Datawarehouse team.
 Technical and business analysis, implementation of ETL workflows.</p></div></div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date">2019 — 2021</div><h3>BI Consultant — People &amp; Technologies</h3><p>Assignment at Smals, Functional Analyst, Knowledge Management team — Brussels</p><div class="experience-hover"><h4>Sub-experience</h4><p>Assigned at Smals, as Analyst in the Knowledge Management team.
+      <div class="t-item experience-card" tabindex="0"><div class="t-date">2019 — 2021</div><h3 data-i18n="experience.peopleTech">BI Consultant — People &amp; Technologies</h3><p data-i18n="experience.smalsSummary">Assignment at Smals, Functional Analyst, Knowledge Management team — Brussels</p><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.smals">Assigned at Smals, as Analyst in the Knowledge Management team.
 - Implemented end-to-end BI solutions with SSIS, SSAS and SSRS
 - Created a documentation framework and a logging framework
 - Shared the SPOC responsibility</p></div></div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date">2018 — 2019</div><h3>Project Developer and BI Expert — Efficy</h3><p>Brussels</p><div class="experience-hover"><h4>Sub-experience</h4><p>Full-stack developer on a custom Javascript framework
+      <div class="t-item experience-card" tabindex="0"><div class="t-date">2018 — 2019</div><h3 data-i18n="experience.efficy">Project Developer and BI Expert — Efficy</h3><p data-i18n="locations.brussels">Brussels</p><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.efficyDetail">Full-stack developer on a custom Javascript framework
 Qlik Sense + Crystal Reports expert</p></div></div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date">2018</div><h3>Web Developer Intern — 8Trust</h3><p>Brussels</p><div class="experience-hover"><h4>Sub-experience</h4><p>- Developed features in PHP for several WordPress websites
+      <div class="t-item experience-card" tabindex="0"><div class="t-date">2018</div><h3 data-i18n="experience.trust">Web Developer Intern — 8Trust</h3><p data-i18n="locations.brussels">Brussels</p><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.trustDetail">- Developed features in PHP for several WordPress websites
 - Implemented redesigns in HTML/CSS.</p></div></div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date">2016</div><h3>Office Coordinator — Celtic Internships</h3><p>Cork, Ireland</p><div class="experience-hover"><h4>Sub-experience</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.</p></div></div>
+      <div class="t-item experience-card" tabindex="0"><div class="t-date">2016</div><h3 data-i18n="experience.celtic">Office Coordinator — Celtic Internships</h3><p data-i18n="locations.cork">Cork, Ireland</p><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.celticDetail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.</p></div></div>
     </div>
   </div>
 </section>
 
 <section id="education">
   <div class="wrap">
-    <h2>Education &amp; Training</h2>
+    <h2 data-i18n="sections.education">Education &amp; Training</h2>
     <div class="section-line"></div>
 
     <div class="formation-grid">
       <div>
-        <div class="group-title">Studies</div>
+        <div class="group-title" data-i18n="education.studies">Studies</div>
         <div class="timeline">
-          <div class="t-item"><div class="t-date">2010 — 2015</div><h3>Bachelor's degree in Communication</h3><p>Specialization in Corporate Communication and Public Relations — HEPH-Condorcet, Marcinelle</p></div>
-          <div class="t-item"><div class="t-date">2009 — 2010</div><h3>Bachelor's degree in Computer Science (1st year)</h3><p>UMons, Mons</p></div>
-          <div class="t-item"><div class="t-date">2008</div><h3>CESS (high school diploma)</h3><p>Athénée Royal Jourdan, Fleurus</p></div>
+          <div class="t-item"><div class="t-date">2010 — 2015</div><h3 data-i18n="education.communication">Bachelor's degree in Communication</h3><p data-i18n="education.communicationDetail">Specialization in Corporate Communication and Public Relations — HEPH-Condorcet, Marcinelle</p></div>
+          <div class="t-item"><div class="t-date">2009 — 2010</div><h3 data-i18n="education.computerScience">Bachelor's degree in Computer Science (1st year)</h3><p>UMons, Mons</p></div>
+          <div class="t-item"><div class="t-date">2008</div><h3>CESS</h3><p>Athénée Royal Jourdan, Fleurus</p></div>
         </div>
       </div>
       <div>
-        <div class="group-title">Training</div>
+        <div class="group-title" data-i18n="education.training">Training</div>
         <div class="timeline">
-          <div class="t-item"><div class="t-date">2026</div><h3>Online training</h3><p>Azure Administration, Azure Data Factory, Microsoft Fabric, Microsoft Purview, Microsoft Access,...</p></div>
-          <div class="t-item"><div class="t-date">2023</div><h3>Advanced First Aid Certificate</h3><p>Belgian Red Cross, Nimy</p></div>
-          <div class="t-item"><div class="t-date">2023</div><h3>"Microsoft Power Platform" training</h3><p>Technofutur TIC, Gosselies</p></div>
-          <div class="t-item"><div class="t-date">2021</div><h3>European First Aid Certificate (BEPS)</h3><p>Belgian Red Cross, Suarlée</p></div>
-          <div class="t-item"><div class="t-date">2016</div><h3>Open-source Web and BI Developer</h3><p>Technofutur TIC, Gosselies — 7 months</p></div>
+          <div class="t-item"><div class="t-date">2026</div><h3 data-i18n="education.onlineTraining">Online training</h3><p>Azure Administration, Azure Data Factory, Microsoft Fabric, Microsoft Purview, Microsoft Access,...</p></div>
+          <div class="t-item"><div class="t-date">2023</div><h3 data-i18n="education.firstAidAdvanced">Advanced First Aid Certificate</h3><p data-i18n="education.redCrossNimy">Belgian Red Cross, Nimy</p></div>
+          <div class="t-item"><div class="t-date">2023</div><h3 data-i18n="education.powerPlatform">"Microsoft Power Platform" training</h3><p>Technofutur TIC, Gosselies</p></div>
+          <div class="t-item"><div class="t-date">2021</div><h3 data-i18n="education.firstAid">European First Aid Certificate (BEPS)</h3><p data-i18n="education.redCrossSuarlee">Belgian Red Cross, Suarlée</p></div>
+          <div class="t-item"><div class="t-date">2016</div><h3 data-i18n="education.webBi">Open-source Web and BI Developer</h3><p data-i18n="education.sevenMonths">Technofutur TIC, Gosselies — 7 months</p></div>
         </div>
       </div>
     </div>
@@ -378,31 +380,31 @@ Qlik Sense + Crystal Reports expert</p></div></div>
 
 <section id="languages">
   <div class="wrap">
-    <h2>Languages</h2>
+    <h2 data-i18n="sections.languages">Languages</h2>
     <div class="section-line"></div>
     <div class="certs">
-      <div class="cert"><b>FR</b><span>Native language</span></div>
-      <div class="cert"><b>EN</b><span>C2 — Fluent</span></div>
+      <div class="cert"><b>FR</b><span data-i18n="languages.native">Native language</span></div>
+      <div class="cert"><b>EN</b><span>C2 — <span data-i18n="languages.fluent">Fluent</span></span></div>
     </div>
   </div>
 </section>
 
 <section id="assets">
   <div class="wrap">
-    <h2>Assets</h2>
+    <h2 data-i18n="sections.assets">Assets</h2>
     <div class="section-line"></div>
     <div class="certs">
-      <div class="cert"><span>🤝 Resourceful, sociable, principled</span></div>
-      <div class="cert"><span>🚑 Certified Red Cross First Aider</span></div>
-      <div class="cert"><span>🏕️ 15 years in youth movements, including 5 years as a scout leader</span></div>
+      <div class="cert"><span data-i18n="assets.traits">🤝 Resourceful, sociable, principled</span></div>
+      <div class="cert"><span data-i18n="assets.firstAider">🚑 Certified Red Cross First Aider</span></div>
+      <div class="cert"><span data-i18n="assets.scouting">🏕️ 15 years in youth movements, including 5 years as a scout leader</span></div>
     </div>
   </div>
 </section>
 
 <footer id="contact">
   <div class="wrap">
-    <h2>Let's talk about your next data project</h2>
-    <p>Available for consulting, BI architecture, or Power BI / Microsoft Fabric development assignments.</p>
+    <h2 data-i18n="contact.title">Let's talk about your next data project</h2>
+    <p data-i18n="contact.description">Available for consulting, BI architecture, or Power BI / Microsoft Fabric development assignments.</p>
     <div class="btns">
       <a href="mailto:la.corte.renaud@gmail.com" class="btn btn-primary">la.corte.renaud@gmail.com</a>
       <a href="https://www.linkedin.com/in/lacorterenaud/" class="btn btn-outline">LinkedIn</a>
@@ -495,6 +497,124 @@ const skillCategories = [
   }
 ];
 
+const frenchTranslations = {
+  'nav.skills': 'Compétences',
+  'nav.experience': 'Expérience',
+  'nav.education': 'Formation',
+  'nav.contact': 'Contact',
+  'hero.status': 'Disponible pour de nouveaux projets',
+  'hero.role': 'Expert BI',
+  'hero.tagline': 'Ingénierie – Analyse – Architecture',
+  'hero.description': 'Ingénierie des données, analyse et architecture au service des équipes métier, de SQL Server sur site à Microsoft Fabric.',
+  'hero.contact': 'Me contacter',
+  'sections.skills': 'Compétences',
+  'sections.experience': 'Expérience professionnelle',
+  'sections.education': 'Formation',
+  'sections.languages': 'Langues',
+  'sections.assets': 'Atouts',
+  'kpi.experience': 'Années d’expérience en BI',
+  'kpi.clients': 'Clients majeurs accompagnés',
+  'kpi.technologies': 'Technologies maîtrisées',
+  'kpi.english': 'Niveau d’anglais',
+  'cards.skills': 'Compétences',
+  'cards.impact': 'Impact',
+  'cards.skillDetails': 'Détail des compétences par catégorie',
+  'cards.technologyDetails': 'Détail des technologies',
+  'impact.years': 'années de réalisations en BI',
+  'impact.deliverables': 'tableaux de bord et rapports réalisés',
+  'impact.clients': 'clients majeurs accompagnés',
+  'impact.adoption': 'objectif d’adoption du libre-service',
+  'technology.architecture': 'Architecture',
+  'technology.onPremise': 'Sur site',
+  'technology.cloud': 'Cloud',
+  'technology.query': 'Langages de requête',
+  'technology.other': 'Autres',
+  'experience.keyes': 'Consultant informatique — KEYES',
+  'experience.detail': 'Détail de la mission',
+  'role.ethias': ' — Développeur BI, équipe ODE',
+  'experience.ethias': `Mission chez Ethias en tant que développeur BI au sein de l’équipe One Data Environment :
+Analyse et développement pour les tâches de maintenance opérationnelle. Utilisation de Data Vault 2.0 et de la modélisation dimensionnelle avec WhereScape 3D et RED.`,
+  'role.liers': ' — Analyste de données, site de Liers',
+  'experience.liers': `Mission sur le site de Liers de Safran Aero Boosters :
+- Création d’un outil de consolidation des données en VBA (Excel)
+- Analyses métier et données pour définir différents indicateurs clés (KPI)
+- Mise en place de tableaux de bord Power BI complets (mesures DAX et extraction en schéma en étoile avec Power Query)`,
+  'role.quality': ' — Ingénieur qualité, équipe e-Quality',
+  'experience.quality': `Mission au sein de l’équipe e-Quality de Safran Aero Boosters :
+- Mise en place de nouveaux indicateurs métier
+- Amélioration et refonte technique des indicateurs existants
+- Expertise technique pour répondre aux besoins métier
+- Formation à Power BI`,
+  'role.biExpert': ' — Expert BI, équipe Data',
+  'experience.biExpert': `Mission chez Safran Aero Boosters en tant qu’expert BI au sein de la DSI :
+- Conception de l’infrastructure et de l’architecture décisionnelles
+- Mise en place d’un entrepôt de données complet avec SQL Server et SSIS
+- Intégration des objets métier dans l’entrepôt de données dimensionnel
+- Création d’un framework optimisé d’extraction des données avec Talend
+- Conception et utilisation du framework ETL pour alimenter l’entrepôt avec SSIS
+- Conception et développement de modèles tabulaires dans SSAS
+- Analyse métier pour définir les KPI et les implémenter dans Power BI avec DAX
+- Création de frameworks de journalisation et de supervision des ressources BI
+- Création de processus et supports complémentaires : analyse, documentation, sécurité, RGPD…
+- Accompagnement et intégration d’un collègue indien sur les aspects techniques et fonctionnels`,
+  'experience.davidson': 'Consultant BI — Davidson',
+  'experience.buywaySummary': 'Mission chez Buy Way, analyste BI au sein de l’équipe Datawarehouse — Bruxelles',
+  'experience.buyway': `Mission chez Buy Way en tant qu’analyste BI au sein de l’équipe Datawarehouse.
+Analyses techniques et métier, mise en œuvre de flux ETL.`,
+  'experience.peopleTech': 'Consultant BI — People & Technologies',
+  'experience.smalsSummary': 'Mission chez Smals, analyste fonctionnel au sein de l’équipe Knowledge Management — Bruxelles',
+  'experience.smals': `Mission chez Smals en tant qu’analyste au sein de l’équipe Knowledge Management :
+- Mise en œuvre de solutions BI de bout en bout avec SSIS, SSAS et SSRS
+- Création d’un cadre documentaire et d’un dispositif de journalisation
+- Partage de la responsabilité de point de contact unique (SPOC)`,
+  'experience.efficy': 'Développeur logiciel et expert BI — Efficy',
+  'experience.efficyDetail': `Développeur full-stack sur un framework JavaScript spécifique.
+Expert Qlik Sense et Crystal Reports.`,
+  'experience.trust': 'Stagiaire développeur web — 8Trust',
+  'experience.trustDetail': `Développement de fonctionnalités PHP pour plusieurs sites WordPress.
+- Réalisation de refontes en HTML/CSS.`,
+  'experience.celtic': 'Coordinateur de bureau — Celtic Internships',
+  'experience.celticDetail': 'Description de cette expérience à compléter.',
+  'locations.brussels': 'Bruxelles',
+  'locations.cork': 'Cork, Irlande',
+  'education.studies': 'Études',
+  'education.communication': 'Bachelier en communication',
+  'education.communicationDetail': 'Spécialisation en communication d’entreprise et relations publiques — HEPH-Condorcet, Marcinelle',
+  'education.computerScience': 'Bachelier en informatique (1re année)',
+  'education.training': 'Formations',
+  'education.onlineTraining': 'Formations en ligne',
+  'education.firstAidAdvanced': 'Certificat de premiers secours avancés',
+  'education.redCrossNimy': 'Croix-Rouge de Belgique, Nimy',
+  'education.powerPlatform': 'Formation « Microsoft Power Platform »',
+  'education.firstAid': 'Brevet européen de premiers secours (BEPS)',
+  'education.redCrossSuarlee': 'Croix-Rouge de Belgique, Suarlée',
+  'education.webBi': 'Développeur web et BI open source',
+  'education.sevenMonths': 'Technofutur TIC, Gosselies — 7 mois',
+  'languages.native': 'Langue maternelle',
+  'languages.fluent': 'Courant',
+  'assets.traits': '🤝 Ingénieux, sociable et intègre',
+  'assets.firstAider': '🚑 Secouriste certifié de la Croix-Rouge',
+  'assets.scouting': '🏕️ 15 ans dans les mouvements de jeunesse, dont 5 ans comme chef scout',
+  'contact.title': 'Parlons de votre prochain projet data',
+  'contact.description': 'Disponible pour des missions de conseil, d’architecture BI ou de développement Power BI / Microsoft Fabric.'
+};
+
+const frenchSkillLabels = {
+  'Modelization': 'Modélisation',
+  'Data engineering': 'Ingénierie des données',
+  'Analysis': 'Analyse',
+  'Documentation': 'Documentation',
+  'Governance': 'Gouvernance',
+  'Architecture & modeling': 'Architecture et modélisation',
+  'Cloud': 'Cloud',
+  'On-premise': 'Sur site',
+  'Analytics': 'Analyse et reporting',
+  'Tools': 'Outils',
+  'Collaboration & governance': 'Collaboration et gouvernance'
+};
+
+let currentLanguage = 'en';
+
 const palette = ['#f2c811', '#2dd4bf', '#7dd3fc', '#f87171', '#a78bfa', '#f59e0b', '#34d399', '#f472b6'];
 
 function renderDomainSummary() {
@@ -505,7 +625,7 @@ function renderDomainSummary() {
     const width = Math.min(Math.max(skill.percent, 0), 100);
     return `
       <div class="domain-row">
-        <label>${skill.name}</label>
+        <label>${currentLanguage === 'fr' ? (frenchSkillLabels[skill.name] || skill.name) : skill.name}</label>
         <div class="percent-value">${skill.percent}%</div>
         <div class="domain-progress">
           <span class="fill" style="width:${width}%"></span>
@@ -546,7 +666,7 @@ function renderCategoryCharts() {
     return `
       <div class="category-panel">
         <div class="category-head">
-          <h4>${category.name}</h4>
+          <h4>${currentLanguage === 'fr' ? (frenchSkillLabels[category.name] || category.name) : category.name}</h4>
         </div>
         <div class="category-body">
           <div class="mini-pie" style="${chartStyle}"></div>
@@ -572,13 +692,37 @@ function renderCategoryCharts() {
   }).join('');
 }
 
+const languageButton = document.querySelector('.language-toggle');
+const englishText = new Map([...document.querySelectorAll('[data-i18n]')].map((element) => [element, element.textContent]));
+const applyLanguage = (language) => {
+  currentLanguage = language;
+  const isFrench = language === 'fr';
+  document.documentElement.lang = language;
+  document.title = isFrench ? 'Renaud La Corte — Expert BI' : 'Renaud La Corte — BI Expert';
+  document.querySelector('meta[name="description"]').content = isFrench
+    ? 'Portfolio de Renaud La Corte, expert BI spécialisé en Power BI, Azure, Microsoft Fabric et architecture de données.'
+    : 'Portfolio of Renaud La Corte, BI Expert specialized in Microsoft: Power BI, Azure, Microsoft Fabric, on-premise and cloud data architecture.';
+
+  document.querySelectorAll('[data-i18n]').forEach((element) => {
+    const key = element.getAttribute('data-i18n');
+    element.textContent = isFrench ? (frenchTranslations[key] || englishText.get(element)) : englishText.get(element);
+  });
+
+  languageButton.textContent = isFrench ? 'EN' : 'FR';
+  languageButton.setAttribute('aria-label', isFrench ? 'Switch to English' : 'Passer en français');
+  renderDomainSummary();
+  renderCategoryCharts();
+};
+
 const themeButton = document.querySelector('.theme-toggle');
 const themeIcon = document.querySelector('.theme-toggle .icon');
 const applyTheme = (theme) => {
   const isDark = theme === 'dark';
   document.body.setAttribute('data-theme', isDark ? 'dark' : 'light');
   themeIcon.textContent = isDark ? '🌙' : '☀️';
-  themeButton.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+  themeButton.setAttribute('aria-label', isDark
+    ? (currentLanguage === 'fr' ? 'Passer au thème clair' : 'Switch to light mode')
+    : (currentLanguage === 'fr' ? 'Passer au thème sombre' : 'Switch to dark mode'));
 };
 
 const savedTheme = localStorage.getItem('resume-theme') || 'dark';
@@ -590,8 +734,14 @@ themeButton.addEventListener('click', () => {
   applyTheme(nextTheme);
 });
 
-renderDomainSummary();
-renderCategoryCharts();
+const savedLanguage = localStorage.getItem('resume-language') || 'en';
+applyLanguage(savedLanguage);
+
+languageButton.addEventListener('click', () => {
+  const nextLanguage = currentLanguage === 'en' ? 'fr' : 'en';
+  localStorage.setItem('resume-language', nextLanguage);
+  applyLanguage(nextLanguage);
+});
 
 // Animates the Skills section charts once, the first time they scroll into view
 const skillsEl = document.getElementById('skills');
