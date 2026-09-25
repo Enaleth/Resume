@@ -462,7 +462,7 @@ const skillCategories = [
     ]
   },
   {
-    name: 'Analysis & reporting',
+    name: 'Analytics',
     skills: [
       { name: 'Power BI', value: 95 },
       { name: 'DAX', value: 92 },
@@ -471,14 +471,10 @@ const skillCategories = [
     ]
   },
   {
-    name: 'Other',
+    name: 'Tools',
     skills: [
       { name: 'HTML / CSS / JavaScript', value: 68 },
       { name: 'VBA', value: 65 },
-      { name: 'Collibra', value: 68 },
-      { name: 'Jira', value: 74 },
-      { name: 'Confluence', value: 76 },
-      { name: 'ITIL', value: 72 },
       { name: 'T-SQL', value: 82 },
       { name: 'Git', value: 82 },
       { name: 'WhereScape 3D / RED', value: 60 },
@@ -486,6 +482,15 @@ const skillCategories = [
       { name: 'Qlik Sense', value: 70 },
       { name: 'Oracle DB', value: 70 },
       { name: 'Microsoft Access', value: 65 }
+    ]
+  },
+  {
+    name: 'Collaboration & governance',
+    skills: [
+      { name: 'Collibra', value: 68 },
+      { name: 'Jira', value: 74 },
+      { name: 'Confluence', value: 76 },
+      { name: 'ITIL', value: 72 }
     ]
   }
 ];
@@ -516,7 +521,6 @@ function renderCategoryCharts() {
 
   container.innerHTML = skillCategories.map((category) => {
     const total = category.skills.reduce((sum, skill) => sum + Number(skill.value), 0) || 100;
-    const average = Math.round(category.skills.reduce((sum, skill) => sum + Number(skill.value), 0) / category.skills.length);
     let start = 0;
     const segments = category.skills.map((skill, index) => {
       const value = Number(skill.value) || 0;
@@ -543,7 +547,6 @@ function renderCategoryCharts() {
       <div class="category-panel">
         <div class="category-head">
           <h4>${category.name}</h4>
-          <span class="category-percent">${average}% avg.</span>
         </div>
         <div class="category-body">
           <div class="mini-pie" style="${chartStyle}"></div>
