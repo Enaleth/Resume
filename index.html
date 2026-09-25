@@ -8,8 +8,23 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
 <style>
 :root{
+  --canvas:#0f172a;
+  --surface:#111827;
+  --surface-alt:#1f2937;
+  --border:#334155;
+  --text:#e5e7eb;
+  --muted:#cbd5e1;
+  --accent:#7dd3fc;
+  --gold:#f2c811;
+  --teal:#2dd4bf;
+  --coral:#f87171;
+  --tag-bg:#1f2937;
+  --shadow:rgba(15, 23, 42, 0.25);
+}
+body[data-theme="light"]{
   --canvas:#faf9f8;
   --surface:#ffffff;
+  --surface-alt:#f8fafc;
   --border:#e1dfdd;
   --text:#201f1e;
   --muted:#605e5c;
@@ -17,10 +32,12 @@
   --gold:#f2c811;
   --teal:#0f9d8c;
   --coral:#d64550;
+  --tag-bg:#f3f2f1;
+  --shadow:rgba(0, 0, 0, 0.08);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{background:var(--canvas);color:var(--text);font-family:'Segoe UI','Segoe UI Variable Display',system-ui,-apple-system,'Helvetica Neue',sans-serif;line-height:1.55;}
+body{background:var(--canvas);color:var(--text);font-family:'Segoe UI','Segoe UI Variable Display',system-ui,-apple-system,'Helvetica Neue',sans-serif;line-height:1.55;transition:background .2s ease,color .2s ease;}
 a{color:inherit;text-decoration:none;}
 a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px;}
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
@@ -29,12 +46,15 @@ h1,h2{font-weight:700;letter-spacing:-.01em;}
 
 /* NAV */
 nav{position:sticky;top:0;z-index:50;background:rgba(250,249,248,.92);border-bottom:1px solid var(--border);backdrop-filter:blur(8px);}
-nav .bar{display:flex;justify-content:space-between;align-items:center;height:60px;}
+nav .bar{display:flex;justify-content:space-between;align-items:center;height:60px;gap:16px;}
 .brand{font-weight:700;font-size:1rem;}
-.tabs{display:flex;gap:2px;background:#f3f2f1;padding:3px;border-radius:6px;}
+.nav-actions{display:flex;align-items:center;gap:12px;}
+.tabs{display:flex;gap:2px;background:var(--surface-alt);padding:3px;border-radius:6px;}
 .tab{padding:7px 14px;border-radius:4px;font-size:.85rem;color:var(--muted);font-weight:600;transition:color .15s,background .15s;}
-.tab.active{background:var(--surface);color:var(--text);box-shadow:0 1px 2px rgba(0,0,0,.08);}
+.tab.active{background:var(--surface);color:var(--text);box-shadow:0 1px 2px var(--shadow);}
 .tab:hover{color:var(--text);}
+.theme-toggle{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 1px 2px var(--shadow);}
+.theme-toggle .icon{font-size:1rem;line-height:1;}
 @media(max-width:640px){.tabs{display:none;}}
 
 /* HERO */
@@ -95,12 +115,40 @@ section h2{font-size:1.6rem;margin-bottom:6px;}
 .legend .sw{width:9px;height:9px;border-radius:2px;flex-shrink:0;}
 .legend b{margin-left:auto;color:var(--text);font-variant-numeric:tabular-nums;}
 
+/* DOMAIN SUMMARY */
+.domain-summary{display:grid;gap:12px;}
+.domain-row{display:grid;grid-template-columns:minmax(150px, 1fr) 120px 160px;align-items:center;gap:12px;}
+.domain-row label{font-size:.82rem;color:var(--muted);font-weight:600;}
+.domain-row input{width:100%;padding:7px 10px;border-radius:4px;border:1px solid var(--border);background:var(--surface);color:var(--text);font:inherit;}
+.domain-row .percent-value{display:flex;align-items:center;justify-content:flex-end;font-size:.8rem;color:var(--muted);}
+.domain-progress{height:8px;background:var(--surface-alt);border-radius:999px;overflow:hidden;}
+.domain-progress .fill{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--teal));border-radius:999px;}
+
+/* SKILL CHARTS */
+.category-pies{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:18px;}
+.category-panel{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;box-shadow:0 1px 2px var(--shadow);}
+.category-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px;}
+.category-head h4{font-size:.94rem;font-weight:700;}
+.category-head .category-percent{font-size:.8rem;color:var(--muted);background:var(--surface-alt);padding:5px 8px;border-radius:999px;}
+.category-body{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;}
+.mini-pie{width:110px;height:110px;border-radius:50%;position:relative;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);}
+.mini-pie::after{content:'';position:absolute;inset:22%;background:var(--surface);border-radius:50%;box-shadow:inset 0 0 0 1px var(--border);}
+.category-legend{display:grid;gap:8px;font-size:.76rem;}
+.legend-item{display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--muted);}
+.legend-item .name{display:flex;align-items:center;gap:6px;overflow:hidden;}
+.legend-item .dot{width:8px;height:8px;border-radius:2px;display:inline-block;flex-shrink:0;}
+.legend-item strong{color:var(--text);font-weight:600;}
+.editable-table{width:100%;border-collapse:collapse;margin-top:12px;font-size:.78rem;}
+.editable-table th,.editable-table td{padding:6px 8px;border-bottom:1px solid var(--border);text-align:left;vertical-align:middle;}
+.editable-table thead th{color:var(--muted);font-weight:600;}
+.editable-table input{width:100%;background:var(--surface-alt);color:var(--text);border:1px solid var(--border);padding:5px 6px;border-radius:4px;font:inherit;}
+
 /* SKILL TAGS */
 .tag-group{margin-bottom:16px;}
 .tag-group:last-child{margin-bottom:0;}
 .tag-group h4{font-size:.78rem;color:var(--accent);font-weight:700;margin-bottom:8px;}
 .tag-list{display:flex;flex-wrap:wrap;gap:6px;}
-.tag{background:#f3f2f1;border-radius:4px;padding:4px 10px;font-size:.78rem;color:var(--text);}
+.tag{background:var(--tag-bg);border-radius:4px;padding:4px 10px;font-size:.78rem;color:var(--text);}
 
 /* TIMELINE */
 .timeline{position:relative;padding-left:28px;}
@@ -111,6 +159,16 @@ section h2{font-size:1.6rem;margin-bottom:6px;}
 .t-date{font-size:.8rem;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;}
 .t-item h3{font-size:1rem;font-weight:600;margin:3px 0 3px;}
 .t-item p{font-size:.85rem;color:var(--muted);margin:0;max-width:none;}
+.experience-card{position:relative;display:block;}
+.experience-card:hover .experience-hover,
+.experience-card:focus-within .experience-hover{opacity:1;visibility:visible;transform:translateY(0);}
+.experience-hover{
+  position:absolute;left:0;top:calc(100% + 12px);z-index:20;
+  width:min(420px, 90vw);background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px;box-shadow:0 10px 30px var(--shadow);
+  color:var(--text);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s ease,transform .2s ease,visibility .2s ease;
+}
+.experience-hover h4{font-size:.82rem;font-weight:700;color:var(--accent);margin:0 0 8px;letter-spacing:.02em;text-transform:uppercase;}
+.experience-hover p{margin:0;color:var(--muted);font-size:.8rem;line-height:1.6;}
 
 /* SUB-ROLES (nested assignments within one employer) */
 .sub-roles{list-style:none;margin-top:12px;padding-left:16px;border-left:2px solid var(--border);}
@@ -147,11 +205,16 @@ footer p{color:var(--muted);margin-bottom:28px;}
 <nav>
   <div class="wrap bar">
     <span class="brand">Renaud La Corte</span>
-    <div class="tabs">
-      <a href="#skills" class="tab">Skills</a>
-      <a href="#experience" class="tab">Experience</a>
-      <a href="#education" class="tab">Education</a>
-      <a href="#contact" class="tab">Contact</a>
+    <div class="nav-actions">
+      <div class="tabs">
+        <a href="#skills" class="tab">Skills</a>
+        <a href="#experience" class="tab">Experience</a>
+        <a href="#education" class="tab">Education</a>
+        <a href="#contact" class="tab">Contact</a>
+      </div>
+      <button class="theme-toggle" type="button" aria-label="Toggle theme">
+        <span class="icon" aria-hidden="true">🌙</span>
+      </button>
     </div>
   </div>
 </nav>
@@ -186,11 +249,7 @@ footer p{color:var(--muted);margin-bottom:28px;}
     <div class="dash">
       <div class="card">
         <div class="card-head"><span>Technologies by domain</span><span class="dots">⋯</span></div>
-        <div class="bar-row"><div class="bar-top"><span>Other (tools, governance)</span><b>16</b></div><div class="track"><div class="fill" style="width:100%"></div></div></div>
-        <div class="bar-row"><div class="bar-top"><span>Architecture</span><b>7</b></div><div class="track"><div class="fill" style="width:44%"></div></div></div>
-        <div class="bar-row"><div class="bar-top"><span>On-premise</span><b>6</b></div><div class="track"><div class="fill" style="width:38%"></div></div></div>
-        <div class="bar-row"><div class="bar-top"><span>Cloud</span><b>6</b></div><div class="track"><div class="fill" style="width:38%"></div></div></div>
-        <div class="bar-row"><div class="bar-top"><span>Query languages</span><b>3</b></div><div class="track"><div class="fill" style="width:19%"></div></div></div>
+        <div id="domain-summary" class="domain-summary"></div>
       </div>
 
       <div class="card">
@@ -205,6 +264,11 @@ footer p{color:var(--muted);margin-bottom:28px;}
           </ul>
         </div>
       </div>
+    </div>
+
+    <div class="card" style="margin-top:14px;">
+      <div class="card-head"><span>Skills detail by category</span><span class="dots">⋯</span></div>
+      <div id="category-pies" class="category-pies"></div>
     </div>
 
     <div class="card" style="margin-top:14px;">
@@ -234,7 +298,7 @@ footer p{color:var(--muted);margin-bottom:28px;}
     <div class="section-line"></div>
 
     <div class="timeline">
-      <div class="t-item">
+      <div class="t-item experience-card" tabindex="0">
         <div class="t-date">2023 — 2026</div>
         <h3>IT Consultant — KEYES</h3>
         <p>Liège</p>
@@ -244,12 +308,16 @@ footer p{color:var(--muted);margin-bottom:28px;}
           <li><b>Safran Aero Booster</b> — BI Expert, Data team <span class="sub-date">2023–2026</span></li>
           <li><b>Safran Aero Booster</b> — Quality Engineer, e-Quality team <span class="sub-date">2023–2025</span></li>
         </ul>
+        <div class="experience-hover">
+          <h4>Details</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
       </div>
-      <div class="t-item"><div class="t-date">2021</div><h3>BI Consultant — Davidson</h3><p>Assignment at Buy Way, BI Analyst, Datawarehouse team — Brussels</p></div>
-      <div class="t-item"><div class="t-date">2019 — 2021</div><h3>BI Consultant — People &amp; Technologies</h3><p>Assignment at Smals, Functional Analyst, Knowledge Management team — Brussels</p></div>
-      <div class="t-item"><div class="t-date">2018 — 2019</div><h3>Project Developer and BI Expert — Efficy</h3><p>Brussels</p></div>
-      <div class="t-item"><div class="t-date">2018</div><h3>Web Developer Intern — 8Trust</h3><p>Brussels</p></div>
-      <div class="t-item"><div class="t-date">2016</div><h3>Office Coordinator — Celtic Internships</h3><p>Cork, Ireland</p></div>
+      <div class="t-item experience-card" tabindex="0"><div class="t-date">2021</div><h3>BI Consultant — Davidson</h3><p>Assignment at Buy Way, BI Analyst, Datawarehouse team — Brussels</p><div class="experience-hover"><h4>Details</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec id elit non mi porta gravida at eget metus.</p></div></div>
+      <div class="t-item experience-card" tabindex="0"><div class="t-date">2019 — 2021</div><h3>BI Consultant — People &amp; Technologies</h3><p>Assignment at Smals, Functional Analyst, Knowledge Management team — Brussels</p><div class="experience-hover"><h4>Details</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean lacinia bibendum nulla sed consectetur.</p></div></div>
+      <div class="t-item experience-card" tabindex="0"><div class="t-date">2018 — 2019</div><h3>Project Developer and BI Expert — Efficy</h3><p>Brussels</p><div class="experience-hover"><h4>Details</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna.</p></div></div>
+      <div class="t-item experience-card" tabindex="0"><div class="t-date">2018</div><h3>Web Developer Intern — 8Trust</h3><p>Brussels</p><div class="experience-hover"><h4>Details</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p></div></div>
+      <div class="t-item experience-card" tabindex="0"><div class="t-date">2016</div><h3>Office Coordinator — Celtic Internships</h3><p>Cork, Ireland</p><div class="experience-hover"><h4>Details</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.</p></div></div>
     </div>
   </div>
 </section>
@@ -271,7 +339,7 @@ footer p{color:var(--muted);margin-bottom:28px;}
       <div>
         <div class="group-title">Training</div>
         <div class="timeline">
-          <div class="t-item"><div class="t-date">2026</div><h3>Online Microsoft training</h3><p>Azure Administration, Azure Data Factory, Microsoft Fabric, Microsoft Purview, Microsoft Access</p></div>
+          <div class="t-item"><div class="t-date">2026</div><h3>Online training</h3><p>Azure Administration, Azure Data Factory, Microsoft Fabric, Microsoft Purview, Microsoft Access</p></div>
           <div class="t-item"><div class="t-date">2023</div><h3>Advanced First Aid Certificate</h3><p>Belgian Red Cross, Nimy</p></div>
           <div class="t-item"><div class="t-date">2023</div><h3>"Microsoft Power Platform" training</h3><p>Technofutur TIC, Gosselies</p></div>
           <div class="t-item"><div class="t-date">2021</div><h3>European First Aid Certificate (BEPS)</h3><p>Belgian Red Cross, Suarlée</p></div>
@@ -303,13 +371,204 @@ footer p{color:var(--muted);margin-bottom:28px;}
     <div class="btns">
       <a href="mailto:la.corte.renaud@gmail.com" class="btn btn-primary">la.corte.renaud@gmail.com</a>
       <a href="https://www.linkedin.com/in/lacorterenaud/" class="btn btn-outline">LinkedIn</a>
-      <a href="https://github.com/renaudlacorte" class="btn btn-outline">GitHub</a>
     </div>
+    <div style="display:none"><a href="https://github.com/Enaleth">hidden github</a></div>
     <div class="copy">© 2026 Renaud La Corte</div>
   </div>
 </footer>
 
 <script>
+const skillCategories = [
+  {
+    name: 'Architecture',
+    percent: 30,
+    skills: [
+      { name: 'Medallion', value: 25 },
+      { name: 'Lakehouse', value: 20 },
+      { name: 'Datamesh', value: 15 },
+      { name: 'Kimball', value: 15 },
+      { name: 'Inmon', value: 10 },
+      { name: 'Datavault 2.0', value: 10 },
+      { name: 'ETL / ELT / Reverse ETL', value: 5 }
+    ]
+  },
+  {
+    name: 'On-premise',
+    percent: 22,
+    skills: [
+      { name: 'Microsoft SQL Server', value: 26 },
+      { name: 'SSIS', value: 22 },
+      { name: 'SSAS', value: 18 },
+      { name: 'SSRS', value: 16 },
+      { name: 'Power BI', value: 10 },
+      { name: 'MDS', value: 8 }
+    ]
+  },
+  {
+    name: 'Cloud',
+    percent: 20,
+    skills: [
+      { name: 'Azure Data Factory', value: 24 },
+      { name: 'Microsoft Fabric', value: 24 },
+      { name: 'Purview', value: 18 },
+      { name: 'Power Apps', value: 14 },
+      { name: 'Power Pages', value: 10 },
+      { name: 'Power Automate', value: 10 }
+    ]
+  },
+  {
+    name: 'Query languages',
+    percent: 18,
+    skills: [
+      { name: 'T-SQL', value: 42 },
+      { name: 'DAX', value: 36 },
+      { name: 'Power Query (M)', value: 22 }
+    ]
+  },
+  {
+    name: 'Other',
+    percent: 10,
+    skills: [
+      { name: 'Excel', value: 20 },
+      { name: 'Jira', value: 12 },
+      { name: 'Confluence', value: 11 },
+      { name: 'Collibra', value: 10 },
+      { name: 'Git', value: 10 },
+      { name: 'ITIL', value: 8 },
+      { name: 'Talend', value: 8 },
+      { name: 'Qlik Sense', value: 6 },
+      { name: 'Oracle DB', value: 5 },
+      { name: 'Microsoft Access', value: 4 },
+      { name: 'WhereScape 3D', value: 3 },
+      { name: 'WhereScape RED', value: 2 },
+      { name: 'VBA', value: 1 }
+    ]
+  }
+];
+
+const palette = ['#f2c811', '#2dd4bf', '#7dd3fc', '#f87171', '#a78bfa', '#f59e0b', '#34d399', '#f472b6'];
+
+function renderDomainSummary() {
+  const container = document.getElementById('domain-summary');
+  if (!container) return;
+
+  container.innerHTML = skillCategories.map((category) => {
+    const width = Math.min(Math.max(category.percent, 0), 100);
+    return `
+      <div class="domain-row">
+        <label>${category.name}</label>
+        <input type="number" min="0" max="100" value="${category.percent}" data-category="${category.name}" data-field="percent" aria-label="${category.name} percentage">
+        <div class="percent-value">${category.percent}%</div>
+        <div class="domain-progress" style="grid-column:2 / span 2;">
+          <span class="fill" style="width:${width}%"></span>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderCategoryCharts() {
+  const container = document.getElementById('category-pies');
+  if (!container) return;
+
+  container.innerHTML = skillCategories.map((category) => {
+    const total = category.skills.reduce((sum, skill) => sum + Number(skill.value), 0) || 100;
+    let start = 0;
+    const segments = category.skills.map((skill, index) => {
+      const value = Number(skill.value) || 0;
+      const end = start + (value / total) * 100;
+      const color = palette[index % palette.length];
+      const segment = `${color} ${start}% ${end}%`;
+      start = end;
+      return segment;
+    });
+
+    const chartStyle = `background: conic-gradient(${segments.join(', ')});`;
+
+    const legend = category.skills.map((skill, index) => {
+      const color = palette[index % palette.length];
+      return `
+        <div class="legend-item">
+          <span class="name"><span class="dot" style="background:${color};"></span>${skill.name}</span>
+          <strong>${skill.value}%</strong>
+        </div>
+      `;
+    }).join('');
+
+    return `
+      <div class="category-panel">
+        <div class="category-head">
+          <h4>${category.name}</h4>
+          <span class="category-percent">${category.percent}%</span>
+        </div>
+        <div class="category-body">
+          <div class="mini-pie" style="${chartStyle}"></div>
+          <div class="category-legend">${legend}</div>
+        </div>
+        <table class="editable-table">
+          <thead>
+            <tr><th>Skill</th><th>Value</th></tr>
+          </thead>
+          <tbody>
+            ${category.skills.map((skill, index) => `
+              <tr>
+                <td>${skill.name}</td>
+                <td><input type="number" min="0" max="100" value="${skill.value}" data-category="${category.name}" data-skill="${skill.name}" aria-label="${skill.name} value"></td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }).join('');
+}
+
+function syncValues() {
+  const inputs = document.querySelectorAll('[data-field="percent"], [data-skill]');
+  inputs.forEach((input) => {
+    input.addEventListener('input', () => {
+      const categoryName = input.dataset.category;
+      const category = skillCategories.find((item) => item.name === categoryName);
+      if (!category) return;
+
+      if (input.dataset.field === 'percent') {
+        category.percent = Number(input.value) || 0;
+      } else {
+        const skill = category.skills.find((item) => item.name === input.dataset.skill);
+        if (skill) {
+          skill.value = Number(input.value) || 0;
+        }
+      }
+
+      renderDomainSummary();
+      renderCategoryCharts();
+      syncValues();
+    });
+  });
+}
+
+const themeButton = document.querySelector('.theme-toggle');
+const themeIcon = document.querySelector('.theme-toggle .icon');
+const applyTheme = (theme) => {
+  const isDark = theme === 'dark';
+  document.body.setAttribute('data-theme', isDark ? 'dark' : 'light');
+  themeIcon.textContent = isDark ? '🌙' : '☀️';
+  themeButton.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+};
+
+const savedTheme = localStorage.getItem('resume-theme') || 'dark';
+applyTheme(savedTheme);
+
+themeButton.addEventListener('click', () => {
+  const nextTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  localStorage.setItem('resume-theme', nextTheme);
+  applyTheme(nextTheme);
+});
+
+renderDomainSummary();
+renderCategoryCharts();
+syncValues();
+
 // Animates the Skills section charts once, the first time they scroll into view
 const skillsEl = document.getElementById('skills');
 const chartObserver = new IntersectionObserver((entries) => {
