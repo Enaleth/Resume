@@ -392,10 +392,20 @@ const profileLinks = {
   github: 'https://github.com/Enaleth'
 };
 
+const genericSkills = [
+  { name: 'Modelization', percent: 88 },
+  { name: 'Infrastructure', percent: 91 },
+  { name: 'Development', percent: 86 },
+  { name: 'Analysis', percent: 93 },
+  { name: 'Documentation', percent: 80 },
+  { name: 'Governance', percent: 80 },
+  { name: 'Data engineering', percent: 89 },
+  { name: 'Project delivery', percent: 84 }
+];
+
 const skillCategories = [
   {
-    name: 'Modelization',
-    percent: 88,
+    name: 'Architecture & modeling',
     skills: [
       { name: 'Medallion', value: 88 },
       { name: 'Lakehouse', value: 84 },
@@ -408,92 +418,55 @@ const skillCategories = [
   },
   {
     name: 'Infrastructure',
-    percent: 91,
     skills: [
       { name: 'Microsoft SQL Server', value: 94 },
       { name: 'SSIS', value: 88 },
       { name: 'SSAS', value: 82 },
       { name: 'SSRS', value: 80 },
-      { name: 'Power BI', value: 95 },
-      { name: 'MDS', value: 70 }
+      { name: 'Azure Data Factory', value: 88 },
+      { name: 'Microsoft Fabric', value: 90 },
+      { name: 'Oracle DB', value: 58 }
     ]
   },
   {
     name: 'Development',
-    percent: 86,
     skills: [
-      { name: 'Azure Data Factory', value: 88 },
-      { name: 'Microsoft Fabric', value: 90 },
-      { name: 'Purview', value: 76 },
+      { name: 'Power BI', value: 95 },
       { name: 'Power Apps', value: 74 },
       { name: 'Power Pages', value: 70 },
-      { name: 'Power Automate', value: 80 }
+      { name: 'Power Automate', value: 80 },
+      { name: 'Talend', value: 70 },
+      { name: 'VBA', value: 70 },
+      { name: 'HTML / CSS / JavaScript', value: 68 }
     ]
   },
   {
-    name: 'Analysis',
-    percent: 93,
+    name: 'Analysis & reporting',
     skills: [
       { name: 'T-SQL', value: 95 },
       { name: 'DAX', value: 92 },
-      { name: 'Power Query (M)', value: 90 }
+      { name: 'Power Query (M)', value: 90 },
+      { name: 'Excel', value: 92 },
+      { name: 'Qlik Sense', value: 64 },
+      { name: 'Microsoft Access', value: 65 }
     ]
   },
   {
-    name: 'Documentation',
-    percent: 80,
+    name: 'Documentation & governance',
     skills: [
-      { name: 'Excel', value: 92 },
+      { name: 'Microsoft Purview', value: 76 },
+      { name: 'Collibra', value: 68 },
+      { name: 'MDS', value: 70 },
       { name: 'Jira', value: 74 },
       { name: 'Confluence', value: 76 },
-      { name: 'Collibra', value: 68 },
-      { name: 'Git', value: 82 },
       { name: 'ITIL', value: 72 },
-      { name: 'Talend', value: 70 },
-      { name: 'Qlik Sense', value: 64 },
-      { name: 'Oracle DB', value: 58 },
-      { name: 'Microsoft Access', value: 65 },
-      { name: 'WhereScape 3D', value: 60 },
-      { name: 'WhereScape RED', value: 55 },
-      { name: 'VBA', value: 70 }
-    ]
-  },
-  {
-    name: 'Governance',
-    percent: 80,
-    skills: [
-      { name: 'Excel', value: 92 },
-      { name: 'Jira', value: 74 },
-      { name: 'Confluence', value: 76 },
-      { name: 'Collibra', value: 68 },
-      { name: 'Git', value: 82 },
-      { name: 'ITIL', value: 72 },
-      { name: 'Talend', value: 70 },
-      { name: 'Qlik Sense', value: 64 },
-      { name: 'Oracle DB', value: 58 },
-      { name: 'Microsoft Access', value: 65 },
-      { name: 'WhereScape 3D', value: 60 },
-      { name: 'WhereScape RED', value: 55 },
-      { name: 'VBA', value: 70 }
+      { name: 'WhereScape 3D / RED', value: 60 }
     ]
   },
   {
     name: 'Other',
-    percent: 80,
     skills: [
-      { name: 'Excel', value: 92 },
-      { name: 'Jira', value: 74 },
-      { name: 'Confluence', value: 76 },
-      { name: 'Collibra', value: 68 },
-      { name: 'Git', value: 82 },
-      { name: 'ITIL', value: 72 },
-      { name: 'Talend', value: 70 },
-      { name: 'Qlik Sense', value: 64 },
-      { name: 'Oracle DB', value: 58 },
-      { name: 'Microsoft Access', value: 65 },
-      { name: 'WhereScape 3D', value: 60 },
-      { name: 'WhereScape RED', value: 55 },
-      { name: 'VBA', value: 70 }
+      { name: 'Git', value: 82 }
     ]
   }
 ];
@@ -504,12 +477,12 @@ function renderDomainSummary() {
   const container = document.getElementById('domain-summary');
   if (!container) return;
 
-  container.innerHTML = skillCategories.map((category) => {
-    const width = Math.min(Math.max(category.percent, 0), 100);
+  container.innerHTML = genericSkills.map((skill) => {
+    const width = Math.min(Math.max(skill.percent, 0), 100);
     return `
       <div class="domain-row">
-        <label>${category.name}</label>
-        <div class="percent-value">${category.percent}%</div>
+        <label>${skill.name}</label>
+        <div class="percent-value">${skill.percent}%</div>
         <div class="domain-progress">
           <span class="fill" style="width:${width}%"></span>
         </div>
@@ -524,6 +497,7 @@ function renderCategoryCharts() {
 
   container.innerHTML = skillCategories.map((category) => {
     const total = category.skills.reduce((sum, skill) => sum + Number(skill.value), 0) || 100;
+    const average = Math.round(category.skills.reduce((sum, skill) => sum + Number(skill.value), 0) / category.skills.length);
     let start = 0;
     const segments = category.skills.map((skill, index) => {
       const value = Number(skill.value) || 0;
@@ -550,7 +524,7 @@ function renderCategoryCharts() {
       <div class="category-panel">
         <div class="category-head">
           <h4>${category.name}</h4>
-          <span class="category-percent">${category.percent}%</span>
+          <span class="category-percent">${average}% avg.</span>
         </div>
         <div class="category-body">
           <div class="mini-pie" style="${chartStyle}"></div>
