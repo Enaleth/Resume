@@ -174,7 +174,7 @@ section h2{font-size:1.6rem;margin-bottom:6px;}
   color:var(--text);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s ease,transform .2s ease,visibility .2s ease;
 }
 .experience-hover h4{font-size:.82rem;font-weight:700;color:var(--accent);margin:0 0 8px;letter-spacing:.02em;text-transform:uppercase;}
-.experience-hover p{margin:0;color:var(--muted);font-size:.8rem;line-height:1.6;}
+.experience-hover p{margin:0;color:var(--muted);font-size:.8rem;line-height:1.6;white-space:pre-line;}
 
 /* SUB-ROLES (nested assignments within one employer) */
 .sub-roles{list-style:none;margin-top:12px;padding-left:16px;border-left:2px solid var(--border);}
@@ -307,22 +307,22 @@ footer p{color:var(--muted);margin-bottom:28px;}
 
     <div class="timeline">
       <div class="t-item">
-        <div class="t-date">2023 — 2026</div>
+        <div class="t-date" data-i18n="experience.nrbPeriod">2023 — 2026</div>
         <h3 data-i18n="experience.keyes">IT Consultant — KEYES</h3>
-        <p>Liège</p>
+        <p data-i18n="experience.nrbContext">Liège</p>
         <ul class="sub-roles">
-          <li class="sub-role experience-card" tabindex="0"><b>Ethias</b><span data-i18n="role.ethias"> — BI Developer, ODE team</span> <span class="sub-date">2026</span><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.ethias">Assigned at Ethias as BI Developper in the  One Data Environment team:
+          <li class="sub-role experience-card" tabindex="0"><b>Ethias</b><span data-i18n="role.ethias"> — BI Developer, ODE team</span> <span class="sub-date" data-i18n="experience.ethiasPeriod">2026</span><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.ethias">Assigned at Ethias as BI Developper in the  One Data Environment team:
 Analysis and development for operational maintenance tasks. We used Data Vault 2.0 and Dimensional Modeling with Wherescape 3D et RED.</p></div></li>
-          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="role.liers"> — Data Analyst, Liers Facility</span> <span class="sub-date">2025–2026</span><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.liers">Assigned at Safran Aero Boosters on the Liers facility:
+          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="role.liers"> — Data Analyst, Liers Facility</span> <span class="sub-date" data-i18n="experience.liersPeriod">2025–2026</span><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.liers">Assigned at Safran Aero Boosters on the Liers facility:
 - Creation of a data consolidation tool in VBA (Excel)
 - Business and Data Analysis to help define the various KPIs
 - Implementation of complete Power BI dashboards (DAX measures and star schema extract with Power Query)</p></div></li>
-          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="role.quality"> — Quality Engineer, e-Quality team</span> <span class="sub-date">2023–2025</span><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.quality">Assigned at Safran Aero Boosters in the e-Quality team:
+          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="role.quality"> — Quality Engineer, e-Quality team</span> <span class="sub-date" data-i18n="experience.qualityPeriod">2023–2025</span><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.quality">Assigned at Safran Aero Boosters in the e-Quality team:
 - Implementation of new business KPIs
 - Improvement and technical redesign of existing KPIs
 - Providing technical expertise to support business needs
 - Providing Power BI training</p></div></li>
-          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="role.biExpert"> — BI Expert, Data team</span> <span class="sub-date">2021–2023</span><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.biExpert">Assigned at Safran Aero Boosters, as BI Expert in the DSI:
+          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="role.biExpert"> — BI Expert, Data team</span> <span class="sub-date" data-i18n="experience.biExpertPeriod">2021–2023</span><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.biExpert">Assigned at Safran Aero Boosters, as BI Expert in the DSI:
 - Design of the BI infrastructure and architecture
 - Implementation of a complete Datawarehouse structure with SQL Server and SSIS
 - Integrated business objects into the dimensional Datawarehouse
@@ -335,15 +335,15 @@ Analysis and development for operational maintenance tasks. We used Data Vault 2
 - Mentoring and onboarding of an Indian colleague, covering both technical and functional aspects</p></div></li>
         </ul>
       </div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date">2021</div><h3 data-i18n="experience.davidson">BI Consultant — Davidson</h3><p data-i18n="experience.buywaySummary">Assignment at Buy Way, BI Analyst, Datawarehouse team — Brussels</p><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.buyway">Assigned at Buy Way as BI Analyst in the Datawarehouse team.
+      <div class="t-item experience-card" tabindex="0"><div class="t-date" data-i18n="experience.davidsonPeriod">2021</div><h3 data-i18n="experience.davidson">BI Consultant — Davidson</h3><p data-i18n="experience.buywaySummary">Assignment at Buy Way, BI Analyst, Datawarehouse team — Brussels</p><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.buyway">Assigned at Buy Way as BI Analyst in the Datawarehouse team.
 Technical and business analysis, implementation of ETL workflows.</p></div></div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date">2019 — 2021</div><h3 data-i18n="experience.peopleTech">BI Consultant — People &amp; Technologies</h3><p data-i18n="experience.smalsSummary">Assignment at Smals, Functional Analyst, Knowledge Management team — Brussels</p><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.smals">Assigned at Smals, as Analyst in the Knowledge Management team.
+      <div class="t-item experience-card" tabindex="0"><div class="t-date" data-i18n="experience.smalsPeriod">2019 — 2021</div><h3 data-i18n="experience.peopleTech">BI Consultant — People &amp; Technologies</h3><p data-i18n="experience.smalsSummary">Assignment at Smals, Functional Analyst, Knowledge Management team — Brussels</p><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.smals">Assigned at Smals, as Analyst in the Knowledge Management team.
 - Implemented end-to-end BI solutions with SSIS, SSAS and SSRS
 - Created a documentation framework and a logging framework
 - Shared the SPOC responsibility</p></div></div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date">2018 — 2019</div><h3 data-i18n="experience.efficy">Project Developer and BI Expert — Efficy</h3><p data-i18n="locations.brussels">Brussels</p><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.efficyDetail">Full-stack developer on a custom Javascript framework
+      <div class="t-item experience-card" tabindex="0"><div class="t-date" data-i18n="experience.efficyPeriod">2018 — 2019</div><h3 data-i18n="experience.efficy">Project Developer and BI Expert — Efficy</h3><p data-i18n="locations.brussels">Brussels</p><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.efficyDetail">Full-stack developer on a custom Javascript framework
 Qlik Sense + Crystal Reports expert</p></div></div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date">2018</div><h3 data-i18n="experience.trust">Web Developer Intern — 8Trust</h3><p data-i18n="locations.brussels">Brussels</p><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.trustDetail">- Developed features in PHP for several WordPress websites
+      <div class="t-item experience-card" tabindex="0"><div class="t-date" data-i18n="experience.trustPeriod">2018</div><h3 data-i18n="experience.trust">Web Developer Intern — 8Trust</h3><p data-i18n="locations.brussels">Brussels</p><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.trustDetail">- Developed features in PHP for several WordPress websites
 - Implemented redesigns in HTML/CSS.</p></div></div>
       <div class="t-item experience-card" tabindex="0"><div class="t-date">2016</div><h3 data-i18n="experience.celtic">Office Coordinator — Celtic Internships</h3><p data-i18n="locations.cork">Cork, Ireland</p><div class="experience-hover"><h4 data-i18n="experience.detail">Sub-experience</h4><p data-i18n="experience.celticDetail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.</p></div></div>
     </div>
@@ -529,50 +529,62 @@ const frenchTranslations = {
   'technology.cloud': 'Cloud',
   'technology.query': 'Langages de requête',
   'technology.other': 'Autres',
-  'experience.keyes': 'Consultant informatique — KEYES',
+  'experience.keyes': 'Consultant IT — NRB',
+  'experience.nrbPeriod': 'sept. 2021 - juin 2026 · 4 ans 10 mois',
+  'experience.nrbContext': 'Temps plein · Liège · Hybride',
   'experience.detail': 'Détail de la mission',
-  'role.ethias': ' — Développeur BI, équipe ODE',
-  'experience.ethias': `Mission chez Ethias en tant que développeur BI au sein de l’équipe One Data Environment :
-Analyse et développement pour les tâches de maintenance opérationnelle. Utilisation de Data Vault 2.0 et de la modélisation dimensionnelle avec WhereScape 3D et RED.`,
-  'role.liers': ' — Analyste de données, site de Liers',
-  'experience.liers': `Mission sur le site de Liers de Safran Aero Boosters :
-- Création d’un outil de consolidation des données en VBA (Excel)
-- Analyses métier et données pour définir différents indicateurs clés (KPI)
-- Mise en place de tableaux de bord Power BI complets (mesures DAX et extraction en schéma en étoile avec Power Query)`,
-  'role.quality': ' — Ingénieur qualité, équipe e-Quality',
-  'experience.quality': `Mission au sein de l’équipe e-Quality de Safran Aero Boosters :
-- Mise en place de nouveaux indicateurs métier
-- Amélioration et refonte technique des indicateurs existants
-- Expertise technique pour répondre aux besoins métier
-- Formation à Power BI`,
-  'role.biExpert': ' — Expert BI, équipe Data',
-  'experience.biExpert': `Mission chez Safran Aero Boosters en tant qu’expert BI au sein de la DSI :
-- Conception de l’infrastructure et de l’architecture décisionnelles
-- Mise en place d’un entrepôt de données complet avec SQL Server et SSIS
-- Intégration des objets métier dans l’entrepôt de données dimensionnel
-- Création d’un framework optimisé d’extraction des données avec Talend
-- Conception et utilisation du framework ETL pour alimenter l’entrepôt avec SSIS
-- Conception et développement de modèles tabulaires dans SSAS
-- Analyse métier pour définir les KPI et les implémenter dans Power BI avec DAX
-- Création de frameworks de journalisation et de supervision des ressources BI
-- Création de processus et supports complémentaires : analyse, documentation, sécurité, RGPD…
-- Accompagnement et intégration d’un collègue indien sur les aspects techniques et fonctionnels`,
-  'experience.davidson': 'Consultant BI — Davidson',
-  'experience.buywaySummary': 'Mission chez Buy Way, analyste BI au sein de l’équipe Datawarehouse — Bruxelles',
-  'experience.buyway': `Mission chez Buy Way en tant qu’analyste BI au sein de l’équipe Datawarehouse.
-Analyses techniques et métier, mise en œuvre de flux ETL.`,
-  'experience.peopleTech': 'Consultant BI — People & Technologies',
-  'experience.smalsSummary': 'Mission chez Smals, analyste fonctionnel au sein de l’équipe Knowledge Management — Bruxelles',
-  'experience.smals': `Mission chez Smals en tant qu’analyste au sein de l’équipe Knowledge Management :
-- Mise en œuvre de solutions BI de bout en bout avec SSIS, SSAS et SSRS
-- Création d’un cadre documentaire et d’un dispositif de journalisation
-- Partage de la responsabilité de point de contact unique (SPOC)`,
-  'experience.efficy': 'Développeur logiciel et expert BI — Efficy',
-  'experience.efficyDetail': `Développeur full-stack sur un framework JavaScript spécifique.
-Expert Qlik Sense et Crystal Reports.`,
-  'experience.trust': 'Stagiaire développeur web — 8Trust',
-  'experience.trustDetail': `Développement de fonctionnalités PHP pour plusieurs sites WordPress.
-- Réalisation de refontes en HTML/CSS.`,
+  'role.ethias': ' — Consultant IT',
+  'experience.ethiasPeriod': 'févr. 2026 - juin 2026 · 5 mois',
+  'experience.ethias': `En mission chez Ethias, en tant que Développeur BI dans l'équipe One Data Environment:
+- Analyse et développement pour de la maintenance opérationnelle
+- Modélisation Data Vault 2.0 et Dimensionnelle avec Wherescape 3D et RED`,
+  'role.liers': ' — Consultant IT',
+  'experience.liersPeriod': 'mars 2025 - janv. 2026 · 11 mois',
+  'experience.liers': `En mission chez Safran Aero Boosters, sur le site de Liers:
+- Mise en place d'un outil de pilotage opérationnel complexe
+- Création de dashboards complets, sur Power BI (mesures en DAX et modélisation en étoile en Power Query)
+- Création d'un outil de consolidation de données en Excel (VBA)`,
+  'role.quality': ' — Consultant IT',
+  'experience.qualityPeriod': 'oct. 2023 - mars 2025 · 1 an 6 mois',
+  'experience.quality': `En mission chez Safran Aero Boosters, dans l'équipe e-Qualité du Département Qualité:
+- Mise en place de nouveau indicateurs business
+- Améliorations et refontes techniques d'indicateurs existants
+- Apport expérience technique au business
+- Formations à Power BI pour des utilisateurs métier`,
+  'role.biExpert': ' — Consultant IT',
+  'experience.biExpertPeriod': 'sept. 2021 - oct. 2023 · 2 ans 2 mois',
+  'experience.biExpert': `En mission chez Safran Aero Boosters, en tant qu'expert BI à la DSI :
+- Création de l'architecture et de l'infrastructure BI
+- Mise en place d'un DataWarehouse
+- Modélisation dimensionnelle des objets métiers
+- Extraction des données avec Talend
+- Création des ETL d'alimentation du DWH avec SSIS
+- Modélisation et déploiement de modèles tabulaires avec SSAS
+- Analyse et création d'indicateurs métiers.
+- Mise en place d’un framework de logging et de monitoring des ressources BI,...
+- Création des supports et process accessoires : analyse, documentation, sécurité, GDPR,...
+- Encadrement d'une collègue indienne, onboardings techniques et fonctionnels`,
+  'experience.davidsonPeriod': 'mars 2021 - sept. 2021 · 7 mois',
+  'experience.davidson': 'Consultant BI — Davidson consulting',
+  'experience.buywaySummary': 'Mission chez Buy Way, équipe Datawarehouse — Bruxelles',
+  'experience.buyway': `En mission chez Buy Way, en tant qu'Analyste BI dans l'équipe Datawarehouse.
+Analyse business et technique, implémentation et mise en place de workflow ETL.`,
+  'experience.smalsPeriod': 'oct. 2019 - févr. 2021 · 1 an 5 mois',
+  'experience.peopleTech': 'Consultant Microsoft BI — NRB',
+  'experience.smalsSummary': 'Corroy-le-Grand',
+  'experience.smals': `En mission à SMALS, en tant qu'Analyste dans l'équipe Knowledge Management.
+- Analyse business et technique, implémentation et mise en place de
+solutions BI de bout à bout (SSIS, SSAS, SSRS)
+- Création d’un framework de documentation et de logging utilisé par l’équipe
+- Partage régulier du rôle de SPOC`,
+  'experience.efficyPeriod': 'mars 2018 - oct. 2019 · 1 an 8 mois',
+  'experience.efficy': 'Project Developer et Expert BI — Efficy CRM',
+  'experience.efficyDetail': `Développeur full-stack sur un framework Javascript custom
+Expert Qlik Sense + Crystal Reports`,
+  'experience.trustPeriod': 'janv. 2018 - févr. 2018 · 2 mois',
+  'experience.trust': 'Développeur web stagiaire — 8TRUST',
+  'experience.trustDetail': `- Développement de fonctionnalités en PHP pour différents sites WordPress
+- Implémentation de re-designs graphiques en HTML/CSS.`,
   'experience.celtic': 'Coordinateur de bureau — Celtic Internships',
   'experience.celticDetail': 'Description de cette expérience à compléter.',
   'locations.brussels': 'Bruxelles',
