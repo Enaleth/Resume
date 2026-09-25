@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^python3 -c 'from pathlib import Path; text=Path\\(\"index\\.html\"\\)\\.read_text\\(\\); checks=\\{\"BI_Expert_size_updated\":\"\\.hero \\.role\\{font-size:1\\.4rem;\" in text,\"specialties_size_updated\":\"\\.hero \\.tagline\\{font-size:1rem;\" in text\\}; \\[print\\(f\"\\{name\\}: \\{value\\}\"\\) for name,value in checks\\.items\\(\\)\\]; raise SystemExit\\(not all\\(checks\\.values\\(\\)\\)\\)'$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
