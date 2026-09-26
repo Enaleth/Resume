@@ -52,7 +52,7 @@ nav .bar{display:flex;justify-content:space-between;align-items:center;height:60
 .language-toggle{width:44px;height:40px;padding:0;border:1px solid var(--border);border-radius:20px;background:var(--surface);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;}
 .language-toggle .flag{display:block;width:24px;height:16px;border:1px solid var(--border);border-radius:2px;}
 .language-toggle .flag-fr{background:linear-gradient(90deg,#002395 0 33.333%,#fff 33.333% 66.666%,#ed2939 66.666%);}
-.language-toggle .flag-en{background-color:#fff;background-image:linear-gradient(90deg,transparent 40%,#c8102e 40% 60%,transparent 60%),linear-gradient(transparent 35%,#c8102e 35% 65%,transparent 65%);}
+.language-toggle .flag-en{height:16px;}
 .tabs{display:flex;gap:2px;background:var(--surface-alt);padding:3px;border-radius:6px;}
 .tab{padding:7px 14px;border-radius:4px;font-size:.85rem;color:var(--muted);font-weight:600;transition:color .15s,background .15s;}
 .tab.active{background:var(--surface);color:var(--text);box-shadow:0 1px 2px var(--shadow);}
@@ -117,6 +117,7 @@ section h2{font-size:1.6rem;margin-bottom:6px;}
 .workflow-section .wrap{max-width:none;padding-inline:clamp(24px,4vw,72px);}
 .workflow-diagram{width:100%;overflow-x:auto;background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:18px;}
 .workflow-diagram svg{display:block;max-width:none;height:auto;margin:0 auto;}
+.workflow-diagram .workflow-check{color:#22c55e!important;font-weight:700;}
 @media(max-width:640px){.workflow-section{display:none;}}
 
 /* SKILL CHARTS */
@@ -284,22 +285,22 @@ footer p{color:var(--muted);margin-bottom:28px;}
 
     <div class="timeline">
       <div class="t-item">
-        <div class="t-date" data-i18n="i18n-33">2023 — 2026</div>
+        <div class="t-date" data-i18n="i18n-33">sept. 2021 - current · 5 years 10 months</div>
         <h3 data-i18n="i18n-32">IT Consultant — KEYES</h3>
         <p data-i18n="i18n-34">Liège</p>
         <ul class="sub-roles">
-          <li class="sub-role experience-card" tabindex="0"><b>Ethias</b><span data-i18n="i18n-36"> — BI Developer, ODE team</span> <span class="sub-date" data-i18n="i18n-37">2026</span><div class="experience-hover"><h4 data-i18n="i18n-36">BI Developer, ODE team</h4><p data-i18n="i18n-38">Assigned at Ethias as BI Developper in the  One Data Environment team:
+          <li class="sub-role experience-card" tabindex="0"><b>Ethias — </b><span data-i18n="i18n-36">BI Developer, ODE team</span> <span class="sub-date" data-i18n="i18n-37">feb. 2026 - june 2026 · 5 months</span><div class="experience-hover"><h4 data-i18n="i18n-36">BI Developer, ODE team</h4><p data-i18n="i18n-38">Assigned at Ethias as BI Developper in the  One Data Environment team:
 Analysis and development for operational maintenance tasks. We used Data Vault 2.0 and Dimensional Modeling with Wherescape 3D et RED.</p></div></li>
-          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="i18n-39"> — Data Analyst, Liers Facility</span> <span class="sub-date" data-i18n="i18n-40">2025–2026</span><div class="experience-hover"><h4 data-i18n="i18n-39">Data Analyst, Liers Facility</h4><p data-i18n="i18n-41">Assigned at Safran Aero Boosters on the Liers facility:
+          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster — </b><span data-i18n="i18n-39">Data Analyst, Liers Facility</span> <span class="sub-date" data-i18n="i18n-40">march 2025 - jan. 2026 · 11 months</span><div class="experience-hover"><h4 data-i18n="i18n-39">Data Analyst, Liers Facility</h4><p data-i18n="i18n-41">Assigned at Safran Aero Boosters on the Liers facility:
 - Creation of a data consolidation tool in VBA (Excel)
 - Business and Data Analysis to help define the various KPIs
 - Implementation of complete Power BI dashboards (DAX measures and star schema extract with Power Query)</p></div></li>
-          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="i18n-42"> — Quality Engineer, e-Quality team</span> <span class="sub-date" data-i18n="i18n-43">2023–2025</span><div class="experience-hover"><h4 data-i18n="i18n-42">Quality Engineer, e-Quality team</h4><p data-i18n="i18n-44">Assigned at Safran Aero Boosters in the e-Quality team:
+          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster — </b><span data-i18n="i18n-42">Quality Engineer, e-Quality team</span> <span class="sub-date" data-i18n="i18n-43">oct. 2023 - mars 2025 · 1 year 6 months</span><div class="experience-hover"><h4 data-i18n="i18n-42">Quality Engineer, e-Quality team</h4><p data-i18n="i18n-44">Assigned at Safran Aero Boosters in the e-Quality team:
 - Implementation of new business KPIs
 - Improvement and technical redesign of existing KPIs
 - Providing technical expertise to support business needs
 - Providing Power BI training</p></div></li>
-          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="i18n-45"> — BI Expert, Data team</span> <span class="sub-date" data-i18n="i18n-46">2021–2023</span><div class="experience-hover"><h4 data-i18n="i18n-45">BI Expert, Data team</h4><p data-i18n="i18n-47">Assigned at Safran Aero Boosters, as BI Expert in the DSI:
+          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster — </b><span data-i18n="i18n-45">BI Expert, Data team</span> <span class="sub-date" data-i18n="i18n-46">sept. 2021 - oct. 2023 · 2 years 2 months</span><div class="experience-hover"><h4 data-i18n="i18n-45">BI Expert, Data team</h4><p data-i18n="i18n-47">Assigned at Safran Aero Boosters, as BI Expert in the DSI:
 - Design of the BI infrastructure and architecture
 - Implementation of a complete Datawarehouse structure with SQL Server and SSIS
 - Integrated business objects into the dimensional Datawarehouse
@@ -312,15 +313,15 @@ Analysis and development for operational maintenance tasks. We used Data Vault 2
 - Mentoring and onboarding of an Indian colleague, covering both technical and functional aspects</p></div></li>
         </ul>
       </div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date" data-i18n="i18n-48">2021</div><h3 data-i18n="i18n-49">BI Consultant — Davidson</h3><p data-i18n="i18n-50">Assignment at Buy Way, BI Analyst, Datawarehouse team — Brussels</p><div class="experience-hover"><h4 data-i18n="i18n-49">BI Consultant — Davidson</h4><p data-i18n="i18n-51">Assigned at Buy Way as BI Analyst in the Datawarehouse team.
+      <div class="t-item experience-card" tabindex="0"><div class="t-date" data-i18n="i18n-48">march 2021 - sept. 2021 · 7 months</div><h3 data-i18n="i18n-49">BI Consultant — Davidson</h3><p data-i18n="i18n-50">Assignment at Buy Way, BI Analyst, Datawarehouse team — Brussels</p><div class="experience-hover"><h4 data-i18n="i18n-49">BI Consultant — Davidson</h4><p data-i18n="i18n-51">Assigned at Buy Way as BI Analyst in the Datawarehouse team.
 Technical and business analysis, implementation of ETL workflows.</p></div></div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date" data-i18n="i18n-52">2019 — 2021</div><h3 data-i18n="i18n-53">BI Consultant — People &amp; Technologies</h3><p data-i18n="i18n-54">Assignment at Smals, Functional Analyst, Knowledge Management team — Brussels</p><div class="experience-hover"><h4 data-i18n="i18n-53">BI Consultant — People &amp; Technologies</h4><p data-i18n="i18n-55">Assigned at Smals, as Analyst in the Knowledge Management team.
+      <div class="t-item experience-card" tabindex="0"><div class="t-date" data-i18n="i18n-52">oct. 2019 - feb. 2021 · 1 year 5 months</div><h3 data-i18n="i18n-53">BI Consultant — People &amp; Technologies</h3><p data-i18n="i18n-54">Assignment at Smals, Functional Analyst, Knowledge Management team — Brussels</p><div class="experience-hover"><h4 data-i18n="i18n-53">BI Consultant — People &amp; Technologies</h4><p data-i18n="i18n-55">Assigned at Smals, as Analyst in the Knowledge Management team.
 - Implemented end-to-end BI solutions with SSIS, SSAS and SSRS
 - Created a documentation framework and a logging framework
 - Shared the SPOC responsibility</p></div></div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date" data-i18n="i18n-56">2018 — 2019</div><h3 data-i18n="i18n-57">Project Developer and BI Expert — Efficy</h3><p data-i18n="i18n-63">Brussels</p><div class="experience-hover"><h4 data-i18n="i18n-57">Project Developer and BI Expert — Efficy</h4><p data-i18n="i18n-58">Full-stack developer on a custom Javascript framework
+      <div class="t-item experience-card" tabindex="0"><div class="t-date" data-i18n="i18n-56">march 2018 - oct. 2019 · 1 year 8 months</div><h3 data-i18n="i18n-57">Project Developer and BI Expert — Efficy</h3><p data-i18n="i18n-63">Brussels</p><div class="experience-hover"><h4 data-i18n="i18n-57">Project Developer and BI Expert — Efficy</h4><p data-i18n="i18n-58">Full-stack developer on a custom Javascript framework
 Qlik Sense + Crystal Reports expert</p></div></div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date" data-i18n="i18n-59">2018</div><h3 data-i18n="i18n-60">Web Developer Intern — 8Trust</h3><p data-i18n="i18n-63">Brussels</p><div class="experience-hover"><h4 data-i18n="i18n-60">Web Developer Intern — 8Trust</h4><p data-i18n="i18n-61">- Developed features in PHP for several WordPress websites
+      <div class="t-item experience-card" tabindex="0"><div class="t-date" data-i18n="i18n-59">jan. 2018 - feb. 2018 · 2 months</div><h3 data-i18n="i18n-60">Web Developer Intern — 8Trust</h3><p data-i18n="i18n-63">Brussels</p><div class="experience-hover"><h4 data-i18n="i18n-60">Web Developer Intern — 8Trust</h4><p data-i18n="i18n-61">- Developed features in PHP for several WordPress websites
 - Implemented redesigns in HTML/CSS.</p></div></div>
       <div class="t-item experience-card" tabindex="0"><div class="t-date">2016</div><h3 data-i18n="i18n-85">Office Coordinator — Celtic Internships</h3><p data-i18n="i18n-64">Cork, Ireland</p><div class="experience-hover"><h4 data-i18n="i18n-85">Office Coordinator — Celtic Internships</h4><p data-i18n="i18n-62">Admin tasks related to finding internships, accommodations and planification of activities for foreign students coming into Ireland.</p></div></div>
     </div>
@@ -523,28 +524,28 @@ const frenchTranslations = {
   'i18n-30': 'Langages de requête',
   'i18n-31': 'Autres',
   'i18n-32': 'Consultant IT — NRB',
-  'i18n-33': 'sept. 2021 - juin 2026 · 4 ans 10 mois',
+  'i18n-33': 'sept. 2021 - actuel · 5 ans 10 mois',
   'i18n-34': 'Temps plein · Liège · Hybride',
   'i18n-35': 'Détail de la mission',
-  'i18n-36': ' — Consultant IT',
+  'i18n-36': 'Développeur BI, Equipe ODE',
   'i18n-37': 'févr. 2026 - juin 2026 · 5 mois',
   'i18n-38': `En mission chez Ethias, en tant que Développeur BI dans l'équipe One Data Environment:
 - Analyse et développement pour de la maintenance opérationnelle
 - Modélisation Data Vault 2.0 et Dimensionnelle avec Wherescape 3D et RED`,
-  'i18n-39': ' — Consultant IT',
+  'i18n-39': 'Data Analyst, Site de Liers',
   'i18n-40': 'mars 2025 - janv. 2026 · 11 mois',
   'i18n-41': `En mission chez Safran Aero Boosters, sur le site de Liers:
 - Mise en place d'un outil de pilotage opérationnel complexe
 - Création de dashboards complets, sur Power BI (mesures en DAX et modélisation en étoile en Power Query)
 - Création d'un outil de consolidation de données en Excel (VBA)`,
-  'i18n-42': ' — Consultant IT',
+  'i18n-42': 'Ingénieur Qualité, Equipe e-Qualité',
   'i18n-43': 'oct. 2023 - mars 2025 · 1 an 6 mois',
   'i18n-44': `En mission chez Safran Aero Boosters, dans l'équipe e-Qualité du Département Qualité:
 - Mise en place de nouveau indicateurs business
 - Améliorations et refontes techniques d'indicateurs existants
 - Apport expérience technique au business
 - Formations à Power BI pour des utilisateurs métier`,
-  'i18n-45': ' — Consultant IT',
+  'i18n-45': 'Expert BI, Equipe Data',
   'i18n-46': 'sept. 2021 - oct. 2023 · 2 ans 2 mois',
   'i18n-47': `En mission chez Safran Aero Boosters, en tant qu'expert BI à la DSI :
 - Création de l'architecture et de l'infrastructure BI
@@ -764,6 +765,8 @@ async function renderWorkflowDiagram() {
     return;
   }
 
+  const validationMark = '<span class=\'workflow-check\'>✓</span>';
+  const checked = (label) => `${label}<br/>${validationMark}`;
   const styles = getComputedStyle(document.body);
   const color = (name) => styles.getPropertyValue(name).trim();
   window.mermaid.initialize({
@@ -795,19 +798,19 @@ async function renderWorkflowDiagram() {
   });
 
   const graph = `flowchart TB
-    adoption["${labels.adoption}"]
+    adoption["${checked(labels.adoption)}"]
     subgraph pipeline[" "]
       direction LR
-      need["${labels.need}"] --> sources{"${labels.sources}"}
-      sources --> ssis["SSIS"]
-      sources --> cloud["${labels.azure}"]
-      ssis --> ingestion["${labels.ingestion}"]
+      need["${checked(labels.need)}"] --> sources{"${labels.sources}"}
+      sources --> ssis["${checked('SSIS')}"]
+      sources --> cloud["${checked(labels.azure)}"]
+      ssis --> ingestion["${checked(labels.ingestion)}"]
       cloud --> ingestion
-      ingestion --> transformation["${labels.transformation}"]
-      transformation --> semantic["${labels.semantic}"]
-      semantic --> output["${labels.output}"]
+      ingestion --> transformation["${checked(labels.transformation)}"]
+      transformation --> semantic["${checked(labels.semantic)}"]
+      semantic --> output["${checked(labels.output)}"]
     end
-    governance["${labels.governance}"]
+    governance["${checked(labels.governance)}"]
     adoption -.-> pipeline
     pipeline -.-> governance
     style pipeline fill:transparent,stroke:transparent
@@ -882,7 +885,9 @@ const applyLanguage = (language) => {
   });
 
   formatExperienceLists();
-  languageButton.innerHTML = `<span class="flag ${isFrench ? 'flag-en' : 'flag-fr'}" aria-hidden="true"></span>`;
+  languageButton.innerHTML = isFrench
+    ? '<svg class="flag flag-en" viewBox="0 0 60 30" aria-hidden="true" focusable="false"><rect width="60" height="30" fill="#012169"/><path fill="#fff" d="M0 0v3.75L52.5 30H60v-3.75L7.5 0H0zm60 0h-7.5L0 26.25V30h7.5L60 3.75V0z"/><path fill="#c8102e" d="M0 0v2.1L55.8 30H60v-2.1L4.2 0H0zm60 0h-4.2L0 27.9V30h4.2L60 2.1V0z"/><path fill="#fff" d="M25 0h10v10h25v10H35v10H25V20H0V10h25z"/><path fill="#c8102e" d="M27 0h6v12h27v6H33v12h-6V18H0v-6h27z"/></svg>'
+    : '<span class="flag flag-fr" aria-hidden="true"></span>';
   languageButton.setAttribute('aria-label', isFrench ? 'Passer en anglais' : 'Switch to French');
   updateThemeButtonLabel();
   renderDomainSummary();
