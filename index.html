@@ -114,6 +114,10 @@ section h2{font-size:1.6rem;margin-bottom:6px;}
 .impact-legend li{display:grid;grid-template-columns:9px minmax(0,1fr) auto;align-items:center;gap:8px;color:var(--muted);}
 .impact-legend .swatch{width:9px;height:9px;border-radius:2px;}
 .impact-legend strong{color:var(--text);font-weight:600;font-variant-numeric:tabular-nums;}
+.workflow-section .wrap{max-width:none;padding-inline:clamp(24px,4vw,72px);}
+.workflow-diagram{width:100%;overflow-x:auto;background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:18px;}
+.workflow-diagram svg{display:block;max-width:none;height:auto;margin:0 auto;}
+@media(max-width:640px){.workflow-section{display:none;}}
 
 /* SKILL CHARTS */
 .category-pies{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:18px;}
@@ -265,6 +269,14 @@ footer p{color:var(--muted);margin-bottom:28px;}
   </div>
 </section>
 
+<section id="workflow" class="workflow-section">
+  <div class="wrap">
+    <h2 data-i18n="i18n-86">BI delivery workflow</h2>
+    <div class="section-line"></div>
+    <div id="bi-workflow" class="workflow-diagram" role="img" aria-label="BI delivery workflow"></div>
+  </div>
+</section>
+
 <section id="experience">
   <div class="wrap">
     <h2 data-i18n="i18n-11">Professional Experience</h2>
@@ -276,18 +288,18 @@ footer p{color:var(--muted);margin-bottom:28px;}
         <h3 data-i18n="i18n-32">IT Consultant — KEYES</h3>
         <p data-i18n="i18n-34">Liège</p>
         <ul class="sub-roles">
-          <li class="sub-role experience-card" tabindex="0"><b>Ethias</b><span data-i18n="i18n-36"> — BI Developer, ODE team</span> <span class="sub-date" data-i18n="i18n-37">2026</span><div class="experience-hover"><h4 data-i18n="i18n-36"> — BI Developer, ODE team</h4><p data-i18n="i18n-38">Assigned at Ethias as BI Developper in the  One Data Environment team:
+          <li class="sub-role experience-card" tabindex="0"><b>Ethias</b><span data-i18n="i18n-36"> — BI Developer, ODE team</span> <span class="sub-date" data-i18n="i18n-37">2026</span><div class="experience-hover"><h4 data-i18n="i18n-36">BI Developer, ODE team</h4><p data-i18n="i18n-38">Assigned at Ethias as BI Developper in the  One Data Environment team:
 Analysis and development for operational maintenance tasks. We used Data Vault 2.0 and Dimensional Modeling with Wherescape 3D et RED.</p></div></li>
-          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="i18n-39"> — Data Analyst, Liers Facility</span> <span class="sub-date" data-i18n="i18n-40">2025–2026</span><div class="experience-hover"><h4 data-i18n="i18n-39"> — Data Analyst, Liers Facility</h4><p data-i18n="i18n-41">Assigned at Safran Aero Boosters on the Liers facility:
+          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="i18n-39"> — Data Analyst, Liers Facility</span> <span class="sub-date" data-i18n="i18n-40">2025–2026</span><div class="experience-hover"><h4 data-i18n="i18n-39">Data Analyst, Liers Facility</h4><p data-i18n="i18n-41">Assigned at Safran Aero Boosters on the Liers facility:
 - Creation of a data consolidation tool in VBA (Excel)
 - Business and Data Analysis to help define the various KPIs
 - Implementation of complete Power BI dashboards (DAX measures and star schema extract with Power Query)</p></div></li>
-          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="i18n-42"> — Quality Engineer, e-Quality team</span> <span class="sub-date" data-i18n="i18n-43">2023–2025</span><div class="experience-hover"><h4 data-i18n="i18n-42"> — Quality Engineer, e-Quality team</h4><p data-i18n="i18n-44">Assigned at Safran Aero Boosters in the e-Quality team:
+          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="i18n-42"> — Quality Engineer, e-Quality team</span> <span class="sub-date" data-i18n="i18n-43">2023–2025</span><div class="experience-hover"><h4 data-i18n="i18n-42">Quality Engineer, e-Quality team</h4><p data-i18n="i18n-44">Assigned at Safran Aero Boosters in the e-Quality team:
 - Implementation of new business KPIs
 - Improvement and technical redesign of existing KPIs
 - Providing technical expertise to support business needs
 - Providing Power BI training</p></div></li>
-          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="i18n-45"> — BI Expert, Data team</span> <span class="sub-date" data-i18n="i18n-46">2021–2023</span><div class="experience-hover"><h4 data-i18n="i18n-45"> — BI Expert, Data team</h4><p data-i18n="i18n-47">Assigned at Safran Aero Boosters, as BI Expert in the DSI:
+          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="i18n-45"> — BI Expert, Data team</span> <span class="sub-date" data-i18n="i18n-46">2021–2023</span><div class="experience-hover"><h4 data-i18n="i18n-45">BI Expert, Data team</h4><p data-i18n="i18n-47">Assigned at Safran Aero Boosters, as BI Expert in the DSI:
 - Design of the BI infrastructure and architecture
 - Implementation of a complete Datawarehouse structure with SQL Server and SSIS
 - Integrated business objects into the dimensional Datawarehouse
@@ -378,6 +390,7 @@ Qlik Sense + Crystal Reports expert</p></div></div>
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
 <script>
 const genericSkills = [
   { name: 'Architecture & modeling', percent: 90 },
@@ -498,6 +511,7 @@ const frenchTranslations = {
   'i18n-19': 'Compétences',
   'i18n-20': 'Points forts',
   'i18n-21': 'Détail des compétences par catégorie',
+  'i18n-86': 'Flux de delivery BI',
   'i18n-22': 'Détail des technologies',
   'i18n-23': 'années de réalisations en BI',
   'i18n-24': 'tableaux de bord et rapports réalisés',
@@ -712,6 +726,104 @@ function renderCategoryCharts() {
   }).join('');
 }
 
+let workflowRenderSequence = 0;
+async function renderWorkflowDiagram() {
+  const container = document.getElementById('bi-workflow');
+  if (!container) return;
+
+  const language = currentLanguage === 'fr' ? 'fr' : 'en';
+  const labels = language === 'fr' ? {
+    ariaLabel: 'Diagramme du flux de delivery en intelligence d’affaires',
+    adoption: 'Adoption et amélioration continue',
+    need: 'Besoin métier<br/>et indicateurs',
+    sources: 'Sources de données',
+    azure: 'Azure ou<br/>Microsoft Fabric',
+    ingestion: 'Ingestion et<br/>orchestration',
+    transformation: 'Transformation et<br/>modélisation',
+    semantic: 'Modèle sémantique',
+    output: 'Power BI<br/>et Excel',
+    governance: 'Qualité · sécurité · documentation · gouvernance',
+    unavailable: 'Le diagramme de flux n’a pas pu être chargé.'
+  } : {
+    ariaLabel: 'Business intelligence delivery workflow diagram',
+    adoption: 'Adoption and continuous improvement',
+    need: 'Business need<br/>and KPIs',
+    sources: 'Data sources',
+    azure: 'Azure or<br/>Microsoft Fabric',
+    ingestion: 'Ingestion and<br/>orchestration',
+    transformation: 'Transformation and<br/>modeling',
+    semantic: 'Semantic model',
+    output: 'Power BI<br/>and Excel',
+    governance: 'Quality · security · documentation · governance',
+    unavailable: 'The workflow diagram could not be loaded.'
+  };
+
+  container.setAttribute('aria-label', labels.ariaLabel);
+  if (!window.mermaid) {
+    container.textContent = labels.unavailable;
+    return;
+  }
+
+  const styles = getComputedStyle(document.body);
+  const color = (name) => styles.getPropertyValue(name).trim();
+  window.mermaid.initialize({
+    startOnLoad: false,
+    securityLevel: 'strict',
+    theme: 'base',
+    themeVariables: {
+      background: color('--surface'),
+      primaryColor: color('--surface-alt'),
+      primaryTextColor: color('--text'),
+      primaryBorderColor: color('--border'),
+      lineColor: color('--accent'),
+      secondaryColor: color('--surface'),
+      tertiaryColor: color('--surface-alt'),
+      clusterBkg: color('--surface'),
+      clusterBorder: color('--border'),
+      edgeLabelBackground: color('--surface'),
+      fontFamily: styles.fontFamily,
+      fontSize: '15px'
+    },
+    flowchart: {
+      curve: 'linear',
+      htmlLabels: true,
+      wrappingWidth: 620,
+      nodeSpacing: 18,
+      rankSpacing: 28,
+      useMaxWidth: false
+    }
+  });
+
+  const graph = `flowchart TB
+    adoption["${labels.adoption}"]
+    subgraph pipeline[" "]
+      direction LR
+      need["${labels.need}"] --> sources{"${labels.sources}"}
+      sources --> ssis["SSIS"]
+      sources --> cloud["${labels.azure}"]
+      ssis --> ingestion["${labels.ingestion}"]
+      cloud --> ingestion
+      ingestion --> transformation["${labels.transformation}"]
+      transformation --> semantic["${labels.semantic}"]
+      semantic --> output["${labels.output}"]
+    end
+    governance["${labels.governance}"]
+    adoption -.-> pipeline
+    pipeline -.-> governance
+    style pipeline fill:transparent,stroke:transparent
+  `;
+
+  const renderVersion = ++workflowRenderSequence;
+  try {
+    const { svg, bindFunctions } = await window.mermaid.render(`biWorkflow${renderVersion}`, graph);
+    if (renderVersion !== workflowRenderSequence) return;
+    container.innerHTML = svg;
+    bindFunctions?.(container);
+  } catch {
+    if (renderVersion === workflowRenderSequence) container.textContent = labels.unavailable;
+  }
+}
+
 const languageButton = document.querySelector('.language-toggle');
 const englishText = new Map([...document.querySelectorAll('[data-i18n]')].map((element) => [element, element.textContent]));
 function formatExperienceLists() {
@@ -777,6 +889,7 @@ const applyLanguage = (language) => {
   renderImpactChart('impact-chart', impactDeliveredSkills);
   renderImpactChart('impact-tools-chart', impactToolsSkills);
   renderCategoryCharts();
+  renderWorkflowDiagram();
 };
 
 const themeButton = document.querySelector('.theme-toggle');
@@ -793,6 +906,7 @@ const applyTheme = (theme) => {
   document.body.setAttribute('data-theme', isDark ? 'dark' : 'light');
   themeIcon.textContent = isDark ? '🌙' : '☀️';
   updateThemeButtonLabel();
+  renderWorkflowDiagram();
 };
 
 const savedTheme = localStorage.getItem('resume-theme') || 'dark';
