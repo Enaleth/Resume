@@ -174,7 +174,11 @@ section h2{font-size:1.6rem;margin-bottom:6px;}
   color:var(--text);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s ease,transform .2s ease,visibility .2s ease;
 }
 .experience-hover h4{font-size:.82rem;font-weight:700;color:var(--accent);margin:0 0 8px;letter-spacing:.02em;text-transform:uppercase;}
-.experience-hover p{margin:0;color:var(--muted);font-size:.8rem;line-height:1.6;white-space:pre-line;}
+.experience-hover p,.experience-hover .experience-description{margin:0;color:var(--muted);font-size:.8rem;line-height:1.6;white-space:pre-line;}
+.experience-description p{margin:0 0 8px;}
+.experience-description p:last-child{margin-bottom:0;}
+.experience-description ul{list-style-type:disc;margin:6px 0;padding-left:20px;}
+.experience-hover .experience-description li{position:static;margin:0;padding:0;font:inherit;color:inherit;}
 
 /* SUB-ROLES (nested assignments within one employer) */
 .sub-roles{list-style:none;margin-top:12px;padding-left:16px;border-left:2px solid var(--border);}
@@ -345,7 +349,7 @@ Technical and business analysis, implementation of ETL workflows.</p></div></div
 Qlik Sense + Crystal Reports expert</p></div></div>
       <div class="t-item experience-card" tabindex="0"><div class="t-date" data-i18n="i18n-59">2018</div><h3 data-i18n="i18n-60">Web Developer Intern — 8Trust</h3><p data-i18n="i18n-63">Brussels</p><div class="experience-hover"><h4 data-i18n="i18n-35">Sub-experience</h4><p data-i18n="i18n-61">- Developed features in PHP for several WordPress websites
 - Implemented redesigns in HTML/CSS.</p></div></div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date">2016</div><h3 data-i18n="i18n-61">Office Coordinator — Celtic Internships</h3><p data-i18n="i18n-64">Cork, Ireland</p><div class="experience-hover"><h4 data-i18n="i18n-35">Sub-experience</h4><p data-i18n="i18n-62">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.</p></div></div>
+      <div class="t-item experience-card" tabindex="0"><div class="t-date">2016</div><h3 data-i18n="i18n-85">Office Coordinator — Celtic Internships</h3><p data-i18n="i18n-64">Cork, Ireland</p><div class="experience-hover"><h4 data-i18n="i18n-35">Sub-experience</h4><p data-i18n="i18n-62">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.</p></div></div>
     </div>
   </div>
 </section>
@@ -585,7 +589,7 @@ Expert Qlik Sense + Crystal Reports`,
   'i18n-60': 'Développeur web stagiaire — 8TRUST',
   'i18n-61': `- Développement de fonctionnalités en PHP pour différents sites WordPress
 - Implémentation de re-designs graphiques en HTML/CSS.`,
-  'i18n-61': 'Coordinateur de bureau — Celtic Internships',
+  'i18n-85': 'Coordinateur de bureau — Celtic Internships',
   'i18n-62': 'Description de cette expérience à compléter.',
   'i18n-63': 'Bruxelles',
   'i18n-64': 'Cork, Irlande',
@@ -706,6 +710,47 @@ function renderCategoryCharts() {
 
 const languageButton = document.querySelector('.language-toggle');
 const englishText = new Map([...document.querySelectorAll('[data-i18n]')].map((element) => [element, element.textContent]));
+function formatExperienceLists() {
+  document.querySelectorAll('.experience-hover [data-i18n]').forEach((element) => {
+    const lines = element.textContent.split(/\r?\n/);
+    if (!lines.some((line) => /^\s*-\s+/.test(line))) return;
+
+    const description = document.createElement('div');
+    description.className = 'experience-description';
+    description.setAttribute('data-i18n', element.getAttribute('data-i18n'));
+    englishText.set(description, englishText.get(element));
+
+    let plainLines = [];
+    let list = null;
+    const appendParagraph = () => {
+      if (!plainLines.length) return;
+      const paragraph = document.createElement('p');
+      paragraph.textContent = plainLines.join(' ');
+      description.append(paragraph);
+      plainLines = [];
+    };
+
+    lines.forEach((line) => {
+      const bullet = line.match(/^\s*-\s+(.*)$/);
+      if (bullet) {
+        appendParagraph();
+        if (!list) {
+          list = document.createElement('ul');
+          description.append(list);
+        }
+        const item = document.createElement('li');
+        item.textContent = bullet[1];
+        list.append(item);
+      } else {
+        list = null;
+        if (line.trim()) plainLines.push(line.trim());
+      }
+    });
+    appendParagraph();
+    element.replaceWith(description);
+  });
+}
+
 const applyLanguage = (language) => {
   currentLanguage = language;
   const isFrench = language === 'fr';
@@ -720,6 +765,7 @@ const applyLanguage = (language) => {
     element.textContent = isFrench ? (frenchTranslations[key] || englishText.get(element)) : englishText.get(element);
   });
 
+  formatExperienceLists();
   languageButton.textContent = isFrench ? 'EN' : 'FR';
   languageButton.setAttribute('aria-label', isFrench ? 'Switch to English' : 'Passer en français');
   renderDomainSummary();
