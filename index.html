@@ -92,30 +92,9 @@ section h2{font-size:1.6rem;margin-bottom:6px;}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:24px;}
 .card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;}
 .card-head span:first-child{font-weight:600;font-size:.95rem;}
-.card-head .dots{color:var(--muted);letter-spacing:1px;font-size:1.1rem;}
-
-/* BARS */
-.bar-row{margin-bottom:14px;}
-.bar-row:last-child{margin-bottom:0;}
-.bar-top{display:flex;justify-content:space-between;font-size:.82rem;margin-bottom:5px;gap:12px;}
-.bar-top span:first-child{color:var(--text);}
-.bar-top b{font-variant-numeric:tabular-nums;font-weight:600;flex-shrink:0;}
-.track{height:8px;background:#f3f2f1;border-radius:4px;overflow:hidden;}
 .fill{height:100%;background:var(--gold);border-radius:4px;transform:scaleX(0);transform-origin:left;}
 #skills.in .fill{animation:grow 1s ease-out forwards;}
 @keyframes grow{to{transform:scaleX(1);}}
-
-/* DONUT */
-.donut-box{display:flex;flex-direction:column;align-items:center;}
-.donut{width:150px;height:150px;border-radius:50%;position:relative;margin-bottom:22px;
-  background:conic-gradient(var(--gold) 0 44%,var(--teal) 44% 69%,var(--accent) 69% 88%,var(--coral) 88% 100%);
-  opacity:0;transform:scale(.7);transition:opacity .6s ease,transform .6s ease;}
-#skills.in .donut{opacity:1;transform:scale(1);}
-.donut::after{content:'';position:absolute;inset:26%;background:var(--surface);border-radius:50%;}
-.legend{width:100%;font-size:.82rem;}
-.legend li{display:flex;align-items:center;gap:8px;list-style:none;padding:4px 0;color:var(--muted);}
-.legend .sw{width:9px;height:9px;border-radius:2px;flex-shrink:0;}
-.legend b{margin-left:auto;color:var(--text);font-variant-numeric:tabular-nums;}
 
 /* DOMAIN SUMMARY */
 .domain-summary{display:grid;gap:12px;}
@@ -135,7 +114,6 @@ section h2{font-size:1.6rem;margin-bottom:6px;}
 .category-panel{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;box-shadow:0 1px 2px var(--shadow);}
 .category-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px;}
 .category-head h4{font-size:.94rem;font-weight:700;}
-.category-head .category-percent{font-size:.8rem;color:var(--muted);background:var(--surface-alt);padding:5px 8px;border-radius:999px;}
 .category-body{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;}
 .mini-pie{width:110px;height:110px;border-radius:50%;position:relative;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);}
 .mini-pie::after{content:'';position:absolute;inset:22%;background:var(--surface);border-radius:50%;box-shadow:inset 0 0 0 1px var(--border);}
@@ -144,10 +122,6 @@ section h2{font-size:1.6rem;margin-bottom:6px;}
 .legend-item .name{display:flex;align-items:center;gap:6px;overflow:hidden;}
 .legend-item .dot{width:8px;height:8px;border-radius:2px;display:inline-block;flex-shrink:0;}
 .legend-item strong{color:var(--text);font-weight:600;}
-.editable-table{width:100%;border-collapse:collapse;margin-top:12px;font-size:.78rem;}
-.editable-table th,.editable-table td{padding:6px 8px;border-bottom:1px solid var(--border);text-align:left;vertical-align:middle;}
-.editable-table thead th{color:var(--muted);font-weight:600;}
-.editable-table input{width:100%;background:var(--surface-alt);color:var(--text);border:1px solid var(--border);padding:5px 6px;border-radius:4px;font:inherit;}
 
 /* SKILL TAGS */
 .tag-group{margin-bottom:16px;}
@@ -179,6 +153,11 @@ section h2{font-size:1.6rem;margin-bottom:6px;}
 .experience-description p:last-child{margin-bottom:0;}
 .experience-description ul{list-style-type:disc;margin:6px 0;padding-left:20px;}
 .experience-hover .experience-description li{position:static;margin:0;padding:0;font:inherit;color:inherit;}
+@media(max-width:640px){
+  .experience-hover{left:0;width:min(420px,100%);transform:translateY(8px);}
+  .experience-card:hover .experience-hover,
+  .experience-card:focus-within .experience-hover{transform:translateY(0);}
+}
 
 /* SUB-ROLES (nested assignments within one employer) */
 .sub-roles{list-style:none;margin-top:12px;padding-left:16px;border-left:2px solid var(--border);}
@@ -209,7 +188,7 @@ footer p{color:var(--muted);margin-bottom:28px;}
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto;}
-  .fill,.donut{animation:none !important;transition:none !important;transform:none !important;opacity:1 !important;}
+  .fill{animation:none !important;transition:none !important;transform:none !important;opacity:1 !important;}
 }
 </style>
 </head>
@@ -349,7 +328,7 @@ Technical and business analysis, implementation of ETL workflows.</p></div></div
 Qlik Sense + Crystal Reports expert</p></div></div>
       <div class="t-item experience-card" tabindex="0"><div class="t-date" data-i18n="i18n-59">2018</div><h3 data-i18n="i18n-60">Web Developer Intern — 8Trust</h3><p data-i18n="i18n-63">Brussels</p><div class="experience-hover"><h4 data-i18n="i18n-35">Sub-experience</h4><p data-i18n="i18n-61">- Developed features in PHP for several WordPress websites
 - Implemented redesigns in HTML/CSS.</p></div></div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date">2016</div><h3 data-i18n="i18n-85">Office Coordinator — Celtic Internships</h3><p data-i18n="i18n-64">Cork, Ireland</p><div class="experience-hover"><h4 data-i18n="i18n-35">Sub-experience</h4><p data-i18n="i18n-62">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.</p></div></div>
+      <div class="t-item experience-card" tabindex="0"><div class="t-date">2016</div><h3 data-i18n="i18n-85">Office Coordinator — Celtic Internships</h3><p data-i18n="i18n-64">Cork, Ireland</p><div class="experience-hover"><h4 data-i18n="i18n-35">Sub-experience</h4><p data-i18n="i18n-62">Admin tasks related to finding internships, accommodations and planification of activities for foreign students coming into Ireland.</p></div></div>
     </div>
   </div>
 </section>
@@ -418,10 +397,6 @@ Qlik Sense + Crystal Reports expert</p></div></div>
 </footer>
 
 <script>
-const profileLinks = {
-  github: 'https://github.com/Enaleth'
-};
-
 const genericSkills = [
   { name: 'Modelization', percent: 90 },
   { name: 'Infrastructure', percent: 80 },
@@ -590,7 +565,7 @@ Expert Qlik Sense + Crystal Reports`,
   'i18n-61': `- Développement de fonctionnalités en PHP pour différents sites WordPress
 - Implémentation de re-designs graphiques en HTML/CSS.`,
   'i18n-85': 'Coordinateur de bureau — Celtic Internships',
-  'i18n-62': 'Description de cette expérience à compléter.',
+  'i18n-62': `Tâches administratives liées à la recherche de stages et de logements, ainsi qu'à la planification d'activités pour des étudiants étrangers venant en Irlande.`,
   'i18n-63': 'Bruxelles',
   'i18n-64': 'Cork, Irlande',
   'i18n-65': 'Études',
@@ -688,21 +663,6 @@ function renderCategoryCharts() {
           <div class="mini-pie" style="${chartStyle}"></div>
           <div class="category-legend">${legend}</div>
         </div>
-        <div style="display:none;">
-          <table class="editable-table">
-            <thead>
-              <tr><th>Skill</th><th>Value</th></tr>
-            </thead>
-            <tbody>
-              ${category.skills.map((skill) => `
-                <tr>
-                  <td>${skill.name}</td>
-                  <td>${skill.value}%</td>
-                </tr>
-              `).join('')}
-            </tbody>
-          </table>
-        </div>
       </div>
     `;
   }).join('');
@@ -768,19 +728,25 @@ const applyLanguage = (language) => {
   formatExperienceLists();
   languageButton.textContent = isFrench ? 'EN' : 'FR';
   languageButton.setAttribute('aria-label', isFrench ? 'Switch to English' : 'Passer en français');
+  updateThemeButtonLabel();
   renderDomainSummary();
   renderCategoryCharts();
 };
 
 const themeButton = document.querySelector('.theme-toggle');
 const themeIcon = document.querySelector('.theme-toggle .icon');
+const updateThemeButtonLabel = () => {
+  const isDark = document.body.getAttribute('data-theme') === 'dark';
+  themeButton.setAttribute('aria-label', isDark
+    ? (currentLanguage === 'fr' ? 'Passer au thème clair' : 'Switch to light mode')
+    : (currentLanguage === 'fr' ? 'Passer au thème sombre' : 'Switch to dark mode'));
+};
+
 const applyTheme = (theme) => {
   const isDark = theme === 'dark';
   document.body.setAttribute('data-theme', isDark ? 'dark' : 'light');
   themeIcon.textContent = isDark ? '🌙' : '☀️';
-  themeButton.setAttribute('aria-label', isDark
-    ? (currentLanguage === 'fr' ? 'Passer au thème clair' : 'Switch to light mode')
-    : (currentLanguage === 'fr' ? 'Passer au thème sombre' : 'Switch to dark mode'));
+  updateThemeButtonLabel();
 };
 
 const savedTheme = localStorage.getItem('resume-theme') || 'dark';
