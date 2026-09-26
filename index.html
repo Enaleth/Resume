@@ -646,7 +646,7 @@ function renderImpactChart(containerId, skills) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  const colors = ['#f87171', '#7dd3fc', '#f2c811'];
+  const colors = ['#f87171', ...palette.slice(1, skills.length)];
   const total = skills.reduce((sum, skill) => sum + Math.max(Number(skill.percent) || 0, 0), 0);
   let start = 0;
   const segments = skills.map((skill, index) => {
