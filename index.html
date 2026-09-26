@@ -49,7 +49,10 @@ nav{position:sticky;top:0;z-index:50;background:var(--surface);border-bottom:1px
 nav .bar{display:flex;justify-content:space-between;align-items:center;height:60px;gap:16px;}
 .brand{font-weight:700;font-size:1rem;}
 .nav-actions{display:flex;align-items:center;gap:12px;}
-.language-toggle{height:40px;min-width:44px;padding:0 10px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--text);font-family:inherit;font-size:.8rem;font-weight:600;cursor:pointer;}
+.language-toggle{width:44px;height:40px;padding:0;border:1px solid var(--border);border-radius:20px;background:var(--surface);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;}
+.language-toggle .flag{display:block;width:24px;height:16px;border:1px solid var(--border);border-radius:2px;}
+.language-toggle .flag-fr{background:linear-gradient(90deg,#002395 0 33.333%,#fff 33.333% 66.666%,#ed2939 66.666%);}
+.language-toggle .flag-en{background-color:#fff;background-image:linear-gradient(90deg,transparent 40%,#c8102e 40% 60%,transparent 60%),linear-gradient(transparent 35%,#c8102e 35% 65%,transparent 65%);}
 .tabs{display:flex;gap:2px;background:var(--surface-alt);padding:3px;border-radius:6px;}
 .tab{padding:7px 14px;border-radius:4px;font-size:.85rem;color:var(--muted);font-weight:600;transition:color .15s,background .15s;}
 .tab.active{background:var(--surface);color:var(--text);box-shadow:0 1px 2px var(--shadow);}
@@ -104,24 +107,26 @@ section h2{font-size:1.6rem;margin-bottom:6px;}
 .domain-progress{height:8px;background:var(--surface-alt);border-radius:999px;overflow:hidden;grid-column:1 / -1;}
 .domain-progress .fill{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--teal));border-radius:999px;}
 
-.impact-grid{display:grid;grid-template-columns:repeat(2,minmax(110px,1fr));gap:12px;}
-.impact-kpi{background:var(--surface-alt);border:1px solid var(--border);border-radius:8px;padding:14px;}
-.impact-kpi .value{font-size:1.5rem;font-weight:700;letter-spacing:-.03em;}
-.impact-kpi .label{font-size:.72rem;color:var(--muted);margin-top:4px;line-height:1.4;}
+.impact-chart{display:grid;grid-template-columns:180px minmax(0,1fr);align-items:center;gap:16px;}
+.impact-chart + .impact-chart{margin-top:20px;padding-top:20px;border-top:1px solid var(--border);}
+.impact-pie{width:180px;aspect-ratio:1;border-radius:50%;}
+.impact-legend{display:grid;gap:8px;list-style:none;font-size:.78rem;}
+.impact-legend li{display:grid;grid-template-columns:9px minmax(0,1fr) auto;align-items:center;gap:8px;color:var(--muted);}
+.impact-legend .swatch{width:9px;height:9px;border-radius:2px;}
+.impact-legend strong{color:var(--text);font-weight:600;font-variant-numeric:tabular-nums;}
 
 /* SKILL CHARTS */
 .category-pies{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:18px;}
 .category-panel{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;box-shadow:0 1px 2px var(--shadow);}
 .category-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px;}
 .category-head h4{font-size:.94rem;font-weight:700;}
-.category-body{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;}
-.mini-pie{width:110px;height:110px;border-radius:50%;position:relative;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);}
-.mini-pie::after{content:'';position:absolute;inset:22%;background:var(--surface);border-radius:50%;box-shadow:inset 0 0 0 1px var(--border);}
-.category-legend{display:grid;gap:8px;font-size:.76rem;}
-.legend-item{display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--muted);}
-.legend-item .name{display:flex;align-items:center;gap:6px;overflow:hidden;}
-.legend-item .dot{width:8px;height:8px;border-radius:2px;display:inline-block;flex-shrink:0;}
-.legend-item strong{color:var(--text);font-weight:600;}
+.category-skills{display:grid;gap:10px;}
+.category-skill{display:grid;grid-template-columns:40px minmax(0,1fr);align-items:center;gap:10px;}
+.skill-pie{width:40px;aspect-ratio:1;border-radius:50%;position:relative;}
+.skill-pie::after{content:'';position:absolute;inset:25%;background:var(--surface);border-radius:50%;}
+.category-skill-copy{display:flex;justify-content:space-between;align-items:baseline;gap:8px;min-width:0;}
+.category-skill-name{font-size:.76rem;line-height:1.35;overflow-wrap:anywhere;}
+.category-skill strong{font-size:.76rem;font-weight:600;font-variant-numeric:tabular-nums;flex-shrink:0;}
 
 /* SKILL TAGS */
 .tag-group{margin-bottom:16px;}
@@ -204,7 +209,7 @@ footer p{color:var(--muted);margin-bottom:28px;}
         <a href="#education" class="tab" data-i18n="i18n-3">Education</a>
         <a href="#contact" class="tab" data-i18n="i18n-4">Contact</a>
       </div>
-      <button class="language-toggle" type="button" aria-label="Switch to French">FR</button>
+      <button class="language-toggle" type="button" aria-label="Switch to French"><span class="flag flag-fr" aria-hidden="true"></span></button>
       <button class="theme-toggle" type="button" aria-label="Toggle theme">
         <span class="icon" aria-hidden="true">🌙</span>
       </button>
@@ -247,38 +252,15 @@ footer p{color:var(--muted);margin-bottom:28px;}
       </div>
 
       <div class="card">
-        <div class="card-head"><span data-i18n="i18n-20">Impact delivered</span></div>
-        <div class="impact-grid">
-          <div class="impact-kpi"><div class="value">8+</div><div class="label" data-i18n="i18n-23">years of BI delivery</div></div>
-          <div class="impact-kpi"><div class="value">35+</div><div class="label" data-i18n="i18n-24">dashboards and reports delivered</div></div>
-          <div class="impact-kpi"><div class="value">4</div><div class="label" data-i18n="i18n-25">major clients supported</div></div>
-          <div class="impact-kpi"><div class="value">90%</div><div class="label" data-i18n="i18n-26">self-service adoption objective</div></div>
-        </div>
+        <div class="card-head"><span data-i18n="i18n-20">Main strengths</span></div>
+        <div id="impact-chart" class="impact-chart"></div>
+        <div id="impact-tools-chart" class="impact-chart"></div>
       </div>
     </div>
 
     <div class="card" style="margin-top:14px;">
       <div class="card-head"><span data-i18n="i18n-21">Skills detail by category</span></div>
       <div id="category-pies" class="category-pies"></div>
-    </div>
-
-    <div class="card" style="margin-top:14px;">
-      <div class="card-head"><span data-i18n="i18n-22">Technology details</span></div>
-      <div class="tag-group"><h4 data-i18n="i18n-27">Architecture</h4><div class="tag-list">
-        <span class="tag">Medallion</span><span class="tag">Lakehouse</span><span class="tag">Datamesh</span><span class="tag">Kimball</span><span class="tag">Inmon</span><span class="tag">Datavault 2.0</span><span class="tag">ETL / ELT / Reverse ETL</span>
-      </div></div>
-      <div class="tag-group"><h4 data-i18n="i18n-28">On-premise</h4><div class="tag-list">
-        <span class="tag">Microsoft SQL Server</span><span class="tag">SSIS</span><span class="tag">SSAS</span><span class="tag">SSRS</span><span class="tag">Power BI</span><span class="tag">MDS</span>
-      </div></div>
-      <div class="tag-group"><h4 data-i18n="i18n-29">Cloud</h4><div class="tag-list">
-        <span class="tag">Azure Data Factory</span><span class="tag">Microsoft Fabric</span><span class="tag">Purview</span><span class="tag">Power Apps</span><span class="tag">Power Pages</span><span class="tag">Power Automate</span>
-      </div></div>
-      <div class="tag-group"><h4 data-i18n="i18n-30">Query languages</h4><div class="tag-list">
-        <span class="tag">T-SQL</span><span class="tag">DAX</span><span class="tag">Power Query (M)</span>
-      </div></div>
-      <div class="tag-group"><h4 data-i18n="i18n-31">Other</h4><div class="tag-list">
-        <span class="tag">Excel</span><span class="tag">Jira</span><span class="tag">Confluence</span><span class="tag">Collibra</span><span class="tag">Git</span><span class="tag">ITIL</span><span class="tag">Talend</span><span class="tag">Qlik Sense</span><span class="tag">Oracle DB</span><span class="tag">Microsoft Access</span><span class="tag">WhereScape 3D</span><span class="tag">WhereScape RED</span><span class="tag">VBA</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
-      </div></div>
     </div>
   </div>
 </section>
@@ -294,18 +276,18 @@ footer p{color:var(--muted);margin-bottom:28px;}
         <h3 data-i18n="i18n-32">IT Consultant — KEYES</h3>
         <p data-i18n="i18n-34">Liège</p>
         <ul class="sub-roles">
-          <li class="sub-role experience-card" tabindex="0"><b>Ethias</b><span data-i18n="i18n-36"> — BI Developer, ODE team</span> <span class="sub-date" data-i18n="i18n-37">2026</span><div class="experience-hover"><h4 data-i18n="i18n-35">Sub-experience</h4><p data-i18n="i18n-38">Assigned at Ethias as BI Developper in the  One Data Environment team:
+          <li class="sub-role experience-card" tabindex="0"><b>Ethias</b><span data-i18n="i18n-36"> — BI Developer, ODE team</span> <span class="sub-date" data-i18n="i18n-37">2026</span><div class="experience-hover"><h4 data-i18n="i18n-36"> — BI Developer, ODE team</h4><p data-i18n="i18n-38">Assigned at Ethias as BI Developper in the  One Data Environment team:
 Analysis and development for operational maintenance tasks. We used Data Vault 2.0 and Dimensional Modeling with Wherescape 3D et RED.</p></div></li>
-          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="i18n-39"> — Data Analyst, Liers Facility</span> <span class="sub-date" data-i18n="i18n-40">2025–2026</span><div class="experience-hover"><h4 data-i18n="i18n-35">Sub-experience</h4><p data-i18n="i18n-41">Assigned at Safran Aero Boosters on the Liers facility:
+          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="i18n-39"> — Data Analyst, Liers Facility</span> <span class="sub-date" data-i18n="i18n-40">2025–2026</span><div class="experience-hover"><h4 data-i18n="i18n-39"> — Data Analyst, Liers Facility</h4><p data-i18n="i18n-41">Assigned at Safran Aero Boosters on the Liers facility:
 - Creation of a data consolidation tool in VBA (Excel)
 - Business and Data Analysis to help define the various KPIs
 - Implementation of complete Power BI dashboards (DAX measures and star schema extract with Power Query)</p></div></li>
-          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="i18n-42"> — Quality Engineer, e-Quality team</span> <span class="sub-date" data-i18n="i18n-43">2023–2025</span><div class="experience-hover"><h4 data-i18n="i18n-35">Sub-experience</h4><p data-i18n="i18n-44">Assigned at Safran Aero Boosters in the e-Quality team:
+          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="i18n-42"> — Quality Engineer, e-Quality team</span> <span class="sub-date" data-i18n="i18n-43">2023–2025</span><div class="experience-hover"><h4 data-i18n="i18n-42"> — Quality Engineer, e-Quality team</h4><p data-i18n="i18n-44">Assigned at Safran Aero Boosters in the e-Quality team:
 - Implementation of new business KPIs
 - Improvement and technical redesign of existing KPIs
 - Providing technical expertise to support business needs
 - Providing Power BI training</p></div></li>
-          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="i18n-45"> — BI Expert, Data team</span> <span class="sub-date" data-i18n="i18n-46">2021–2023</span><div class="experience-hover"><h4 data-i18n="i18n-35">Sub-experience</h4><p data-i18n="i18n-47">Assigned at Safran Aero Boosters, as BI Expert in the DSI:
+          <li class="sub-role experience-card" tabindex="0"><b>Safran Aero Booster</b><span data-i18n="i18n-45"> — BI Expert, Data team</span> <span class="sub-date" data-i18n="i18n-46">2021–2023</span><div class="experience-hover"><h4 data-i18n="i18n-45"> — BI Expert, Data team</h4><p data-i18n="i18n-47">Assigned at Safran Aero Boosters, as BI Expert in the DSI:
 - Design of the BI infrastructure and architecture
 - Implementation of a complete Datawarehouse structure with SQL Server and SSIS
 - Integrated business objects into the dimensional Datawarehouse
@@ -318,17 +300,17 @@ Analysis and development for operational maintenance tasks. We used Data Vault 2
 - Mentoring and onboarding of an Indian colleague, covering both technical and functional aspects</p></div></li>
         </ul>
       </div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date" data-i18n="i18n-48">2021</div><h3 data-i18n="i18n-49">BI Consultant — Davidson</h3><p data-i18n="i18n-50">Assignment at Buy Way, BI Analyst, Datawarehouse team — Brussels</p><div class="experience-hover"><h4 data-i18n="i18n-35">Sub-experience</h4><p data-i18n="i18n-51">Assigned at Buy Way as BI Analyst in the Datawarehouse team.
+      <div class="t-item experience-card" tabindex="0"><div class="t-date" data-i18n="i18n-48">2021</div><h3 data-i18n="i18n-49">BI Consultant — Davidson</h3><p data-i18n="i18n-50">Assignment at Buy Way, BI Analyst, Datawarehouse team — Brussels</p><div class="experience-hover"><h4 data-i18n="i18n-49">BI Consultant — Davidson</h4><p data-i18n="i18n-51">Assigned at Buy Way as BI Analyst in the Datawarehouse team.
 Technical and business analysis, implementation of ETL workflows.</p></div></div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date" data-i18n="i18n-52">2019 — 2021</div><h3 data-i18n="i18n-53">BI Consultant — People &amp; Technologies</h3><p data-i18n="i18n-54">Assignment at Smals, Functional Analyst, Knowledge Management team — Brussels</p><div class="experience-hover"><h4 data-i18n="i18n-35">Sub-experience</h4><p data-i18n="i18n-55">Assigned at Smals, as Analyst in the Knowledge Management team.
+      <div class="t-item experience-card" tabindex="0"><div class="t-date" data-i18n="i18n-52">2019 — 2021</div><h3 data-i18n="i18n-53">BI Consultant — People &amp; Technologies</h3><p data-i18n="i18n-54">Assignment at Smals, Functional Analyst, Knowledge Management team — Brussels</p><div class="experience-hover"><h4 data-i18n="i18n-53">BI Consultant — People &amp; Technologies</h4><p data-i18n="i18n-55">Assigned at Smals, as Analyst in the Knowledge Management team.
 - Implemented end-to-end BI solutions with SSIS, SSAS and SSRS
 - Created a documentation framework and a logging framework
 - Shared the SPOC responsibility</p></div></div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date" data-i18n="i18n-56">2018 — 2019</div><h3 data-i18n="i18n-57">Project Developer and BI Expert — Efficy</h3><p data-i18n="i18n-63">Brussels</p><div class="experience-hover"><h4 data-i18n="i18n-35">Sub-experience</h4><p data-i18n="i18n-58">Full-stack developer on a custom Javascript framework
+      <div class="t-item experience-card" tabindex="0"><div class="t-date" data-i18n="i18n-56">2018 — 2019</div><h3 data-i18n="i18n-57">Project Developer and BI Expert — Efficy</h3><p data-i18n="i18n-63">Brussels</p><div class="experience-hover"><h4 data-i18n="i18n-57">Project Developer and BI Expert — Efficy</h4><p data-i18n="i18n-58">Full-stack developer on a custom Javascript framework
 Qlik Sense + Crystal Reports expert</p></div></div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date" data-i18n="i18n-59">2018</div><h3 data-i18n="i18n-60">Web Developer Intern — 8Trust</h3><p data-i18n="i18n-63">Brussels</p><div class="experience-hover"><h4 data-i18n="i18n-35">Sub-experience</h4><p data-i18n="i18n-61">- Developed features in PHP for several WordPress websites
+      <div class="t-item experience-card" tabindex="0"><div class="t-date" data-i18n="i18n-59">2018</div><h3 data-i18n="i18n-60">Web Developer Intern — 8Trust</h3><p data-i18n="i18n-63">Brussels</p><div class="experience-hover"><h4 data-i18n="i18n-60">Web Developer Intern — 8Trust</h4><p data-i18n="i18n-61">- Developed features in PHP for several WordPress websites
 - Implemented redesigns in HTML/CSS.</p></div></div>
-      <div class="t-item experience-card" tabindex="0"><div class="t-date">2016</div><h3 data-i18n="i18n-85">Office Coordinator — Celtic Internships</h3><p data-i18n="i18n-64">Cork, Ireland</p><div class="experience-hover"><h4 data-i18n="i18n-35">Sub-experience</h4><p data-i18n="i18n-62">Admin tasks related to finding internships, accommodations and planification of activities for foreign students coming into Ireland.</p></div></div>
+      <div class="t-item experience-card" tabindex="0"><div class="t-date">2016</div><h3 data-i18n="i18n-85">Office Coordinator — Celtic Internships</h3><p data-i18n="i18n-64">Cork, Ireland</p><div class="experience-hover"><h4 data-i18n="i18n-85">Office Coordinator — Celtic Internships</h4><p data-i18n="i18n-62">Admin tasks related to finding internships, accommodations and planification of activities for foreign students coming into Ireland.</p></div></div>
     </div>
   </div>
 </section>
@@ -398,13 +380,28 @@ Qlik Sense + Crystal Reports expert</p></div></div>
 
 <script>
 const genericSkills = [
-  { name: 'Modelization', percent: 90 },
-  { name: 'Infrastructure', percent: 80 },
+  { name: 'Architecture & modeling', percent: 90 },
+  { name: 'Infrastructure Cloud', percent: 75 },
+  { name: 'Infrastructure On-premise', percent: 85 },
   { name: 'Data engineering', percent: 85 },
-  { name: 'Analysis', percent: 85 },
+  { name: 'Business Analysis', percent: 75 },
+  { name: 'Data Analysis', percent: 85 },
   { name: 'Dataviz', percent: 80 },
   { name: 'Documentation', percent: 70 },
-  { name: 'Governance', percent: 65 }
+  { name: 'Governance', percent: 65 },
+  { name: 'Collaboration', percent: 90 }
+];
+
+const impactDeliveredSkills = [
+  { name: 'Data Modeling', percent: 50 },
+  { name: 'Data engineering', percent: 35 },
+  { name: 'Data viz', percent: 15 }
+];
+
+const impactToolsSkills = [
+  { name: 'SQL Server', percent: 40 },
+  { name: 'Power BI', percent: 30 },
+  { name: 'Azure', percent: 20 }
 ];
 
 const skillCategories = [
@@ -463,7 +460,9 @@ const skillCategories = [
       { name: 'Talend', value: 75 },
       { name: 'Qlik Sense', value: 65 },
       { name: 'Oracle DB', value: 75 },
-      { name: 'Microsoft Access', value: 60 }
+      { name: 'Microsoft Access', value: 60 },
+      { name: 'UML', value: 50 },
+      { name: 'BPMN', value: 50 }
     ]
   },
   {
@@ -497,7 +496,7 @@ const frenchTranslations = {
   'i18n-17': 'Technologies maîtrisées',
   'i18n-18': 'Niveau d’anglais',
   'i18n-19': 'Compétences',
-  'i18n-20': 'Impact',
+  'i18n-20': 'Points forts',
   'i18n-21': 'Détail des compétences par catégorie',
   'i18n-22': 'Détail des technologies',
   'i18n-23': 'années de réalisations en BI',
@@ -591,22 +590,39 @@ Expert Qlik Sense + Crystal Reports`,
 };
 
 const frenchSkillLabels = {
-  'Modelization': 'Modélisation',
+  'Data Modeling': 'Modélisation des données',
   'Data engineering': 'Ingénierie des données',
-  'Analysis': 'Analyse',
+  'Data viz': 'Visualisation des données',
+  'Business Analysis': 'Analyse Business',
+  'Data Analysis': 'Analyse des données',
   'Documentation': 'Documentation',
   'Governance': 'Gouvernance',
   'Architecture & modeling': 'Architecture et modélisation',
-  'Cloud': 'Cloud',
-  'On-premise': 'Sur site',
-  'Analytics': 'Analyse et reporting',
-  'Tools': 'Outils',
-  'Collaboration & governance': 'Collaboration et gouvernance'
+  'Infrastructure Cloud': 'Infrastructure Cloud',
+  'Infrastructure On-premise': 'Infrastructure On-premise',
+  'Dataviz': 'Visualisation des données',
+  'Collaboration': 'Collaboration'
 };
 
 let currentLanguage = 'en';
 
 const palette = ['#f2c811', '#2dd4bf', '#7dd3fc', '#f87171', '#a78bfa', '#f59e0b', '#34d399', '#f472b6', '#2563eb', '#06b6d4', '#84cc16', '#4f46e5'];
+const microsoftPalette = ['#F25022', '#7FBA00', '#00A4EF', '#FFB900'];
+const microsoftSkills = new Set([
+  'Azure Data Factory', 'Microsoft Fabric', 'Microsoft Purview', 'Microsoft Power Apps',
+  'Microsoft Power Pages', 'Microsoft Power Automate', 'Microsoft SQL Server',
+  'SQL Server Integration Services (SSIS)', 'SQL Server Analysis Services (SSAS)',
+  'SQL Server Reporting Services (SSRS)', 'Master Data Services', 'Power BI', 'DAX',
+  'Power Query (M)', 'Excel', 'VBA', 'T-SQL', 'Microsoft Access'
+]);
+
+function hashColorKey(value) {
+  let hash = 2166136261;
+  for (let index = 0; index < value.length; index++) {
+    hash = Math.imul(hash ^ value.charCodeAt(index), 16777619);
+  }
+  return hash >>> 0;
+}
 
 function renderDomainSummary() {
   const container = document.getElementById('domain-summary');
@@ -626,43 +642,71 @@ function renderDomainSummary() {
   }).join('');
 }
 
+function renderImpactChart(containerId, skills) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  const colors = ['#f87171', '#7dd3fc', '#f2c811'];
+  const total = skills.reduce((sum, skill) => sum + Math.max(Number(skill.percent) || 0, 0), 0);
+  let start = 0;
+  const segments = skills.map((skill, index) => {
+    const value = Math.max(Number(skill.percent) || 0, 0);
+    const end = total ? start + (value / total) * 100 : start;
+    const color = colors[index % colors.length];
+    const segment = `${color} ${start}% ${end}%`;
+    start = end;
+    return segment;
+  });
+
+  const legend = skills.map((skill, index) => {
+    const value = Math.max(Number(skill.percent) || 0, 0);
+    const color = colors[index % colors.length];
+    return `
+      <li>
+        <span class="swatch" aria-hidden="true" style="background:${color};"></span>
+        <span>${currentLanguage === 'fr' ? (frenchSkillLabels[skill.name] || skill.name) : skill.name}</span>
+        <strong>${value}%</strong>
+      </li>
+    `;
+  }).join('');
+
+  const chartBackground = total ? `conic-gradient(${segments.join(',')})` : 'var(--surface-alt)';
+  container.innerHTML = `
+    <div class="impact-pie" aria-hidden="true" style="background:${chartBackground};"></div>
+    <ul class="impact-legend">${legend}</ul>
+  `;
+}
+
 function renderCategoryCharts() {
   const container = document.getElementById('category-pies');
   if (!container) return;
 
   container.innerHTML = skillCategories.map((category) => {
-    const total = category.skills.reduce((sum, skill) => sum + Number(skill.value), 0) || 100;
-    let start = 0;
-    const segments = category.skills.map((skill, index) => {
-      const value = Number(skill.value) || 0;
-      const end = start + (value / total) * 100;
-      const color = palette[index % palette.length];
-      const segment = `${color} ${start}% ${end}%`;
-      start = end;
-      return segment;
-    });
-
-    const chartStyle = `background: conic-gradient(${segments.join(', ')});`;
-
-    const legend = category.skills.map((skill, index) => {
-      const color = palette[index % palette.length];
+    const categoryOffset = hashColorKey(category.name) % microsoftPalette.length;
+    let microsoftSkillIndex = 0;
+    const skills = category.skills.map((skill, index) => {
+      const value = Math.min(Math.max(Number(skill.value) || 0, 0), 100);
+      const isMicrosoftSkill = microsoftSkills.has(skill.name);
+      const color = isMicrosoftSkill
+        ? microsoftPalette[(categoryOffset + microsoftSkillIndex++) % microsoftPalette.length]
+        : palette[hashColorKey(`${category.name}:${skill.name}`) % palette.length];
       return `
-        <div class="legend-item">
-          <span class="name"><span class="dot" style="background:${color};"></span>${skill.name}</span>
-          <strong>${skill.value}%</strong>
+        <div class="category-skill">
+          <div class="skill-pie" aria-hidden="true" style="background:conic-gradient(${color} 0 ${value}%,var(--surface-alt) ${value}% 100%);"></div>
+          <div class="category-skill-copy">
+            <span class="category-skill-name">${skill.name}</span>
+            <strong>${value}%</strong>
+          </div>
         </div>
       `;
-    }).join('');
+    });
 
     return `
       <div class="category-panel">
         <div class="category-head">
           <h4>${currentLanguage === 'fr' ? (frenchSkillLabels[category.name] || category.name) : category.name}</h4>
         </div>
-        <div class="category-body">
-          <div class="mini-pie" style="${chartStyle}"></div>
-          <div class="category-legend">${legend}</div>
-        </div>
+        <div class="category-skills">${skills.join('')}</div>
       </div>
     `;
   }).join('');
@@ -726,10 +770,12 @@ const applyLanguage = (language) => {
   });
 
   formatExperienceLists();
-  languageButton.textContent = isFrench ? 'EN' : 'FR';
-  languageButton.setAttribute('aria-label', isFrench ? 'Switch to English' : 'Passer en français');
+  languageButton.innerHTML = `<span class="flag ${isFrench ? 'flag-en' : 'flag-fr'}" aria-hidden="true"></span>`;
+  languageButton.setAttribute('aria-label', isFrench ? 'Passer en anglais' : 'Switch to French');
   updateThemeButtonLabel();
   renderDomainSummary();
+  renderImpactChart('impact-chart', impactDeliveredSkills);
+  renderImpactChart('impact-tools-chart', impactToolsSkills);
   renderCategoryCharts();
 };
 
